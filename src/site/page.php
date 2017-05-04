@@ -1,8 +1,10 @@
 <?php
 require "../apps/Authentication.php";
 
-if(Authentication::is_authenticated($_COOKIE["IP"])){
-    echo "True";
-}else{
-    echo "False";
-}
+echo $_SERVER["REQUEST_URI"];
+
+//if(Authentication::is_authenticated($_COOKIE["IP"])){
+//    echo "True";
+//}else{
+//    echo "False";
+//}
