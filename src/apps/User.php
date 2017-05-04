@@ -6,7 +6,6 @@ require "../basic/Model.php";
 
 class User extends Model
 {
-    public $id;
     public $username;
     public $password;
     public $full_name;

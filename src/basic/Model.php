@@ -2,9 +2,11 @@
 
 
 require "DBConnector.php";
+require "Query.php";
 
-abstract class Model
+abstract class Model extends Query
 {
+    public $id = null;
 
     static function all()
     {
@@ -56,50 +58,23 @@ abstract class Model
     function save()
     {
         $class_name = get_called_class();
+        if ($this->id != null) {
+            $this->update();
+            return;
+        }
         $properties = $this->properties();
         $columns = $properties["columns"];
         $values = $properties["values"];
         $query = "INSERT INTO  $class_name ($columns) VALUES ($values);";
         DBConnector::Instance()->insert($query);
-
     }
 
-    function properties()
+    private function update()
     {
-        $columns = "";
-        $values = "";
-        $map = get_object_vars($this);
-        unset($map["id"]);
-        $count = count($map);
-        $i = 0;
-        foreach ($map as $key => $value) {
-            if ($i != $count - 1) {
-                $columns .= "$key,";
-                $values .= "'$value',";
-            } else {
-                $columns .= "$key";
-                $values .= "'$value'";
-            }
-            $i++;
-        }
-        return array("columns" => $columns, "values" => $values);
+        $class_name = get_called_class();
+        $query_args = $this->get_update_query();
+        $query = "UPDATE $class_name SET  $query_args WHERE id=$this->id";
+        echo $query;
+        DBConnector::Instance()->insert($query);
     }
-
-    static function get_query(array $args)
-    {
-        $query = "";
-        $count = count($args);
-        $i = 0;
-        foreach ($args as $key => $value) {
-            if ($i != $count - 1) {
-                $query .= "BINARY $key='$value' and ";
-            } else {
-                $query .= "BINARY $key='$value'";
-            }
-            $i++;
-        }
-        return $query;
-    }
-
-
 }
