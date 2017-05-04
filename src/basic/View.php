@@ -7,8 +7,7 @@ abstract class View
 
     public static function as_view($parameter=null)
     {
-        echo "View class";
-        self::render($parameter);
+        static::render($parameter);
 
         self::go_success_url();
     }

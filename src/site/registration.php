@@ -22,7 +22,7 @@ require "../basic/template_renderer.php"
         <div class="login-panel panel panel-default">
             <div class="panel-heading">Register</div>
             <div class="panel-body">
-                <form role="form" method="post" action="register.php">
+                <form role="form" method="post" action="registration.php">
                     <fieldset>
                         <div class="form-group">
                             <input class="form-control" placeholder="Username" name="username" type="text" autofocus="">
@@ -66,7 +66,6 @@ require "../basic/template_renderer.php"
 if (isset($_POST["register"])) {
     url("register/");
 }
-
 ?>
 
 
