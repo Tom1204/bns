@@ -5,6 +5,7 @@ require "../apps/User.php";
 class Registration extends View
 {
     public static $model;
+    public static $success_url;
 
 
     public static function render($parameter = null)
