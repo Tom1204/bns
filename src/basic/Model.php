@@ -36,6 +36,23 @@ abstract class Model
         }
     }
 
+    static function filter(array $query)
+    {
+        $query_args = self::get_query($query);
+        $class_name = get_called_class();
+        $query_string = "SELECT * FROM " . $class_name . " WHERE " . $query_args;
+        $result = DBConnector::Instance()->make_query($query_string);
+        $objects = array();
+        if (mysqli_num_rows($result) != 0) {
+            while ($object = mysqli_fetch_object($result, $class_name)) {
+                array_push($objects, $object);
+            }
+            return $objects;
+        } else {
+            return $objects;
+        }
+    }
+
     function save()
     {
         $class_name = get_called_class();
@@ -83,5 +100,6 @@ abstract class Model
         }
         return $query;
     }
+
 
 }
