@@ -74,7 +74,6 @@ abstract class Model extends Query
         $class_name = get_called_class();
         $query_args = $this->get_update_query();
         $query = "UPDATE $class_name SET  $query_args WHERE id=$this->id";
-        echo $query;
         DBConnector::Instance()->insert($query);
     }
 }
