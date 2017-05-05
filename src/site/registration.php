@@ -25,22 +25,22 @@ require "../basic/template_renderer.php"
                 <form role="form" method="post" action="registration.php">
                     <fieldset>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Username" name="username" type="text" autofocus="">
+                            <input class="form-control" placeholder="Username" name="username" type="text" autofocus="" required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                            <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
                         </div>
                         <div class="form-group">
                             <input class="form-control" placeholder="Confirm password" name="confirmation"
-                                   type="password" value="">
+                                   type="password" value="" required>
                         </div>
 
                         <div class="form-group">
-                            <input class="form-control" placeholder="Full name" name="full_name" type="text" value="">
+                            <input class="form-control" placeholder="Full name" name="full_name" type="text" value="" required>
                         </div>
 
                         <div class="form-group">
-                            <input class="form-control" placeholder="Email" name="email" type="email" value="">
+                            <input class="form-control" placeholder="Email" name="email" type="email" value="" required>
                         </div>
                         <div class="form-group">
                             <div class="dropdown">
