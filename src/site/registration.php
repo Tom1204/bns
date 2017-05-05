@@ -66,7 +66,6 @@ require "../basic/template_renderer.php"
 if (isset($_POST["register"])) {
     url("register/");
 }
-
 ?>
 
 

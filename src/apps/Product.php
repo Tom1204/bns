@@ -7,4 +7,76 @@ class Product extends Model
     public $user;
     public $cost;
     public $is_delete = false;
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getCost()
+    {
+        return $this->cost;
+    }
+
+
+    /**
+     * @param mixed $cost
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function IsDelete()
+    {
+        return $this->is_delete;
+    }
+
+
+    /**
+     * @param bool $is_delete
+     */
+    public function setIsDelete($is_delete)
+    {
+        $this->is_delete = $is_delete;
+    }
+
+
 }

@@ -7,10 +7,8 @@ class Registration extends View
     public static $model;
     public static $success_url;
 
-
     public static function render($parameter = null)
     {
-        echo "Registration";
         $user = new User();
         $user->username = $_REQUEST["username"];
         $user->password = $_REQUEST["password"];
