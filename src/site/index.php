@@ -1,9 +1,8 @@
 <?php
 require "../apps/Authentication.php";
 
-$user = User::get(array("username"=>"lucy"));
-$user->username="tom";
-$user->save();
+$user = User::get(array("username"=>"tom"));
+echo $user->username;
 
 //try {
 //    $session = Authentication::login("tom", "aprel12aprel15");
