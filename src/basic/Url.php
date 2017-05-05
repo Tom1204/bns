@@ -6,10 +6,10 @@ class Url
 //                "/^register$" => array("Registration", "as_view"),
     );
 
-    public static function check($url, $parameter = null)
+    public static function check($url)
     {
         foreach (static::$urls as $pattern => $func) {
-            preg_match("$pattern", $url) ? $func($parameter) : false;
+            preg_match("$pattern", $url) ? $func($url) : false;
         }
     }
 }

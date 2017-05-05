@@ -1,5 +1,6 @@
 <?php
-require "../basic/template_renderer.php"
+require_once "../basic/template_renderer.php";
+require_once "../Controllers/Registration.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +56,7 @@ require "../basic/template_renderer.php"
                                 </ul>
                             </div>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Register" name="register">
+                        <input type="submit" class="btn btn-primary" value="Register" name="submit">
                     </fieldset>
                 </form>
             </div>
@@ -63,8 +64,8 @@ require "../basic/template_renderer.php"
     </div><!-- /.col-->
 </div><!-- /.row -->
 <?php
-if (isset($_POST["register"])) {
-    url("register/");
+if (isset($_POST["submit"])) {
+    Registration::render();
 }
 ?>
 

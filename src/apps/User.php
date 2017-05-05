@@ -1,7 +1,7 @@
 <?php
 
 
-require "../basic/Model.php";
+require_once "../basic/Model.php";
 
 
 class User extends Model

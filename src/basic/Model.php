@@ -1,8 +1,8 @@
 <?php
 
 
-require "DBConnector.php";
-require "Query.php";
+require_once "DBConnector.php";
+require_once "Query.php";
 
 abstract class Model extends Query
 {
