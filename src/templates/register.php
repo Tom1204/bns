@@ -24,7 +24,6 @@
         <div class="login-panel panel panel-default">
             <div class="panel-heading">Register</div>
             <div class="panel-body">
-
                 <form role="form">
                     <fieldset>
                         <div class="form-group">
@@ -47,23 +46,18 @@
                                    type="password" value="">
                         </div>
 
-                        <div class="dropdown form-group">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                User type
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Customer</a></li>
-                                <li><a href="#">Suppler</a></li>
-                            </ul>
+                        <div class="form-group">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    User type
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">Customer</a></li>
+                                    <li><a href="#">Suppler</a></li>
+                                </ul>
+                            </div>
                         </div>
-
-                        <select>
-                            <option>Customer</option>
-                            <option>Suppler</option>
-                        </select>
-
 
                         <a href="index.html" class="btn btn-primary">Register</a>
                     </fieldset>
