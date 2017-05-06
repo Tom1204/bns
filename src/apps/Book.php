@@ -10,7 +10,7 @@ class Book extends Model
 {
     public $id;
     public $productId;
-    public $userId;
+    public $user;
     public $total_cost;
     public $time;
 
