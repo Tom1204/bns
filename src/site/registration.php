@@ -44,17 +44,10 @@ require_once "../Controllers/Registration.php";
                             <input class="form-control" placeholder="Email" name="email" type="email" value="" required>
                         </div>
                         <div class="form-group">
-                            <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="user_type"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    User type
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="user_type">
-                                    <li><a href="#">Customer</a></li>
-                                    <li><a href="#">Supplier</a></li>
-                                </ul>
-                            </div>
+                            <select class="form-control">
+                                <option>Producer</option>
+                                <option>Customer</option>
+                            </select>
                         </div>
                         <input type="submit" class="btn btn-primary" value="Register" name="submit">
                     </fieldset>

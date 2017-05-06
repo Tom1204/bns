@@ -7,7 +7,7 @@ require "../apps/Authentication.php";
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lumino - Dashboard</title>
+    <title>Statistics</title>
 
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/datepicker3.css" rel="stylesheet">
@@ -57,13 +57,13 @@ require "../apps/Authentication.php";
     </form>
     <ul class="nav menu">
         <li class="active"><a href="statistics.php"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Statistics</a></li>
-        <li><a href="widgets.html"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> My books</a></li>
-        <li><a href="charts.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Purchase</a></li>
+        <li><a href="myBooks.php"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> My books</a></li>
+        <li><a href="purchase.php"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Purchase</a></li>
         <li><a href="myProducts.php"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> My Products</a></li>
         <li><a href="addProduct.php"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Add product</a></li>
-        <li><a href="icons.html"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Available products</a></li>
+        <li><a href="availableProducts.php"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Available products</a></li>
         <li role="presentation" class="divider"></li>
-        <li><a href="login.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Log out</a></li>
+        <li><a href="login.php"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Log out</a></li>
     </ul>
     <div class="attribution">Design by <a href="http://www.medialoot.com/item/lumino-admin-bootstrap-template/">BNS</a><br/><a href="http://www.glyphs.co" style="color: #333;">Icons by BNS</a></div>
 </div><!--/.sidebar-->
