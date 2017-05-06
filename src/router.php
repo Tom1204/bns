@@ -11,5 +11,7 @@ class Urls extends Url
         "/^registration/" => array("Registration", "as_view"),
         "/^login/" => array("Login", "as_view"),
         "/^dashboard/" => array("Dashboard", "as_view"),
+        "/^books/" => array("Book", "as_view"),
+        "/^products/" => array("Product", "as_view"),
     );
 }

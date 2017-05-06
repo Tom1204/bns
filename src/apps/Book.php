@@ -6,7 +6,7 @@
  * Date: 06-May-17
  * Time: 13:33
  */
-class Order extends Model
+class Book extends Model
 {
     public $id;
     public $productId;

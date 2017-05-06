@@ -13,6 +13,7 @@ class Dashboard extends View
 	        return array("user" => $user);
     	}else{
     		echo "Failed Auth";
+    		return null;
     	}
     }
 }

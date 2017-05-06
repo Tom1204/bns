@@ -11,4 +11,5 @@ class Products extends View
         $products = Product::all();
         return $products;
     }
+
 }

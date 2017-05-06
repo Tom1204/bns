@@ -6,11 +6,17 @@
  * Date: 5/5/17
  * Time: 2:47 PM
  */
-class Orders extends View
+
+require_once "../basic/View.php";
+require_once "../basic/template_renderer.php";
+require_once "../apps/Book.php";
+
+
+class Books extends View
 {
     public static function render($parameter = null)
     {
-        $orders = Order::all();
+        $orders = Book::all();
         return $orders;
     }
 }
