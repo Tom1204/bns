@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 abstract class View
 {
     public static $model;
@@ -13,7 +13,7 @@ abstract class View
     }
 
     private static function go_success_url(){
-        ob_start();
+        
         if (!self::$success_url){
             echo "Not provided success url";
             return;

@@ -2,13 +2,12 @@
 require "../basic/View.php";
 require "../apps/User.php";
 
-class Registration extends View
-{
-    public static $model;
-    public static $success_url;
+class Registration extends View{
 
-    public static function render($parameter = null)
-    {
+    public static $model;
+    public static $success_url = "/login.php";
+
+    public static function render($parameter = null){
         $user = new User();
         $user->username = $_REQUEST["username"];
         $user->password = $_REQUEST["password"];

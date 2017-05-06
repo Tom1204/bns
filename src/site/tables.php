@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,10 +45,10 @@
 					</li>
 				</ul>
 			</div>
-							
+
 		</div><!-- /.container-fluid -->
 	</nav>
-		
+
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<form role="search">
 			<div class="form-group">
@@ -62,23 +65,23 @@
 			<li><a href="icons.html"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Icons</a></li>
 			<li class="parent ">
 				<a href="#">
-					<span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Dropdown 
+					<span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Dropdown
 				</a>
 				<ul class="children collapse" id="sub-item-1">
 					<li>
 						<a class="" href="#">
 							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 1
-						</a>
+</a>
 					</li>
 					<li>
 						<a class="" href="#">
 							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 2
-						</a>
+</a>
 					</li>
 					<li>
 						<a class="" href="#">
 							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 3
-						</a>
+</a>
 					</li>
 				</ul>
 			</li>
@@ -87,22 +90,22 @@
 		</ul>
 		<div class="attribution">Template by <a href="http://www.medialoot.com/item/lumino-admin-bootstrap-template/">Medialoot</a><br/><a href="http://www.glyphs.co" style="color: #333;">Icons by Glyphs</a></div>
 	</div><!--/.sidebar-->
-		
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
 				<li class="active">Icons</li>
 			</ol>
 		</div><!--/.row-->
-		
+
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Tables</h1>
 			</div>
 		</div><!--/.row-->
-				
-		
+
+
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
@@ -121,7 +124,7 @@
 					</div>
 				</div>
 			</div>
-		</div><!--/.row-->	
+		</div><!--/.row-->
 		<div class="row">
 			<div class="col-md-6">
 				<div class="panel panel-default">
@@ -153,41 +156,41 @@
 						    </thead>
 						</table>
 						<script>
-						    $(function () {
-						        $('#hover, #striped, #condensed').click(function () {
-						            var classes = 'table';
-						
-						            if ($('#hover').prop('checked')) {
-						                classes += ' table-hover';
-						            }
-						            if ($('#condensed').prop('checked')) {
-						                classes += ' table-condensed';
-						            }
-						            $('#table-style').bootstrapTable('destroy')
-						                .bootstrapTable({
+$(function () {
+    $('#hover, #striped, #condensed').click(function () {
+        var classes = 'table';
+
+        if ($('#hover').prop('checked')) {
+            classes += ' table-hover';
+        }
+        if ($('#condensed').prop('checked')) {
+            classes += ' table-condensed';
+        }
+        $('#table-style').bootstrapTable('destroy')
+        .bootstrapTable({
 						                    classes: classes,
 						                    striped: $('#striped').prop('checked')
 						                });
 						        });
-						    });
-						
+});
+
 						    function rowStyle(row, index) {
-						        var classes = ['active', 'success', 'info', 'warning', 'danger'];
-						
-						        if (index % 2 === 0 && index / 2 < classes.length) {
-						            return {
-						                classes: classes[index / 2]
+                                var classes = ['active', 'success', 'info', 'warning', 'danger'];
+
+                                if (index % 2 === 0 && index / 2 < classes.length) {
+                                    return {
+                                        classes: classes[index / 2]
 						            };
 						        }
-						        return {};
+                                return {};
 						    }
 						</script>
 					</div>
 				</div>
 			</div>
-		</div><!--/.row-->	
-		
-		
+		</div><!--/.row-->
+
+
 	</div><!--/.main-->
 
 	<script src="../site/assets/js/jquery-1.11.1.min.js"></script>
@@ -199,20 +202,20 @@
 	<script src="../site/assets/js/bootstrap-datepicker.js"></script>
 	<script src="../site/assets/js/bootstrap-table.js"></script>
 	<script>
-		!function ($) {
-			$(document).on("click","ul.nav li.parent > a > span.icon", function(){		  
-				$(this).find('em:first').toggleClass("glyphicon-minus");	  
-			}); 
-			$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
-		}(window.jQuery);
+!function ($) {
+    $(document).on("click","ul.nav li.parent > a > span.icon", function(){
+        $(this).find('em:first').toggleClass("glyphicon-minus");
+    });
+    $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+}(window.jQuery);
 
 		$(window).on('resize', function () {
-		  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+            if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
 		})
 		$(window).on('resize', function () {
-		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+            if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
 		})
-	</script>	
+        </script>
 </body>
 
 </html>
