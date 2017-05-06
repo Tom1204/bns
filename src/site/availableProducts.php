@@ -1,4 +1,5 @@
 <?php
+
 ?>
 
 <!DOCTYPE html>
@@ -6,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My products</title>
+    <title>My books</title>
 
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/datepicker3.css" rel="stylesheet">
@@ -42,22 +43,8 @@
                             <use xlink:href="#stroked-male-user"></use>
                         </svg>
                         User <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">
-                                <svg class="glyph stroked male-user">
-                                    <use xlink:href="#stroked-male-user"></use>
-                                </svg>
-                                Profile</a></li>
-                        <li><a href="#">
-                                <svg class="glyph stroked gear">
-                                    <use xlink:href="#stroked-gear"></use>
-                                </svg>
-                                Settings</a></li>
-                        <li><a href="#">
-                                <svg class="glyph stroked cancel">
-                                    <use xlink:href="#stroked-cancel"></use>
-                                </svg>
-                                Logout</a></li>
+                    <ul class="dropdown-menu" role="menu"><li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>Profile</a></li><li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg>Settings</a></li>
+                        <li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg>Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -88,7 +75,7 @@
                     <use xlink:href="#stroked-line-graph"></use>
                 </svg>
                 Purchase</a></li>
-        <li class="active"><a href="myProducts.php">
+        <li><a href="myProducts.php">
                 <svg class="glyph stroked pencil">
                     <use xlink:href="#stroked-pencil"></use>
                 </svg>
@@ -98,7 +85,7 @@
                     <use xlink:href="#stroked-app-window"></use>
                 </svg>
                 Add product</a></li>
-        <li><a href="availableProducts.php">
+        <li class="active"><a href="availableProducts.php">
                 <svg class="glyph stroked star">
                     <use xlink:href="#stroked-star"></use>
                 </svg>
@@ -107,12 +94,11 @@
         <li><a href="login.php">
                 <svg class="glyph stroked male-user">
                     <use xlink:href="#stroked-male-user"></use>
-                </svg>
-                Log out</a></li>
+                </svg>Log out</a></li>
     </ul>
     <div class="attribution">Design by <a
-                href="http://www.medialoot.com/item/lumino-admin-bootstrap-template/">BNS</a><br/><a
-                href="http://www.glyphs.co" style="color: #333;">Icons by BNS</a></div>
+            href="http://www.medialoot.com/item/lumino-admin-bootstrap-template/">BNS</a><br/><a
+            href="http://www.glyphs.co" style="color: #333;">Icons by BNS</a></div>
 </div><!--/.sidebar-->
 
 
@@ -120,17 +106,14 @@
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="#">
-                    <svg class="glyph stroked home">
-                        <use xlink:href="#stroked-home"></use>
-                    </svg>
-                </a></li>
-            <li class="active">Product list</li>
+            <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+            <li class="active">Available product list</li>
         </ol>
     </div><!--/.row-->
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">My Products</h1>
+            <h1 class="page-header">Available products</h1>
         </div>
     </div><!--/.row-->
 
@@ -138,7 +121,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Product list</div>
+                <div class="panel-heading">Available product list</div>
                 <div class="panel-body">
                     <table data-toggle="table" data-url="tables/data1.json" data-show-refresh="true"
                            data-show-toggle="true" data-show-columns="true" data-search="true"
@@ -146,11 +129,11 @@
                            data-sort-order="desc">
                         <thead>
                         <tr>
-                            <th data-field="state" data-checkbox="true">State</th>
-                            <th data-field="name" data-sortable="true">Name</th>
-                            <th data-field="type" data-sortable="true">Type</th>
-                            <th data-field="price" data-sortable="true">Price $</th>
-                            <th data-field="description" data-sortable="true">Description</th>
+                            <th data-field="productName" data-sortable="true">Product name</th>
+                            <th data-field="price" data-sortable="true">Price</th>
+                            <th data-field="producerName" data-sortable="true">Producer name</th>
+                            <th data-field="email" data-sortable="true">Email</th>
+                            <th data-field="time" data-sortable="true">Type</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -158,24 +141,11 @@
                         for ($i = 0; $i < 50; $i++) {
                             ?>
                             <tr>
-                                <td></td>
-                                <td>
-                                    <div contenteditable>apple</div>
-                                </td>
-
-                                <td>
-                                    <div contenteditable>food</div>
-
-                                </td>
-
-                                <td>
-                                    <div contenteditable>30$</div>
-                                </td>
-
-                                <td>
-                                    <div contenteditable>healthy food, eat it</div>
-                                </td>
-
+                                <td>Apple</td>
+                                <td>300$</td>
+                                <td>Microsoft</td>
+                                <td>sardor.islomov.96@gmail.com</td>
+                                <td>technology</td>
                             </tr>
                             <?php
                         }

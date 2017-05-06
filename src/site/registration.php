@@ -1,6 +1,6 @@
 <?php
 require_once "../basic/template_renderer.php";
-require_once "../Controllers/Registration.php";
+require_once "../controllers/Registration.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,10 +26,22 @@ require_once "../Controllers/Registration.php";
                 <form role="form" method="post" action="registration.php">
                     <fieldset>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Username" name="username" type="text" autofocus="" required>
+                            <input class="form-control" placeholder="Username" name="username" type="text" autofocus=""
+                                   required>
                         </div>
+
                         <div class="form-group">
-                            <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
+                            <input class="form-control" placeholder="Full name" name="full_name" type="text" value=""
+                                   required>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Email" name="email" type="email" value="" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Password" name="password" type="password" value=""
+                                   required>
                         </div>
                         <div class="form-group">
                             <input class="form-control" placeholder="Confirm password" name="confirmation"
@@ -37,25 +49,12 @@ require_once "../Controllers/Registration.php";
                         </div>
 
                         <div class="form-group">
-                            <input class="form-control" placeholder="Full name" name="full_name" type="text" value="" required>
+                            <select class="form-control">
+                                <option>Producer</option>
+                                <option>Customer</option>
+                            </select>
                         </div>
 
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Email" name="email" type="email" value="" required>
-                        </div>
-                        <div class="form-group">
-                            <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="user_type"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    User type
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="user_type">
-                                    <li><a href="#">Customer</a></li>
-                                    <li><a href="#">Suppler</a></li>
-                                </ul>
-                            </div>
-                        </div>
                         <input type="submit" class="btn btn-primary" value="Register" name="submit">
                     </fieldset>
                 </form>
