@@ -20,6 +20,8 @@ class Login extends FormView
         $session = Authentication::login($username, $password);
         echo $session;
         setcookie("Auth", $session, time()+86400*30);
-        url("dashboard.php");
+        url("statistics.php");
     }
 }
+
+?>

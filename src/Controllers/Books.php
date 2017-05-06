@@ -3,7 +3,7 @@
 /**
  * Created by PhpStorm.
  * User: tom1
- * Date: 5/5/17
+ * Date: 24/4/17
  * Time: 2:47 PM
  */
 
@@ -20,3 +20,5 @@ class Books extends View
         return $orders;
     }
 }
+
+?>

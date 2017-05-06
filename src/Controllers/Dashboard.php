@@ -17,3 +17,5 @@ class Dashboard extends View
     	}
     }
 }
+
+?>

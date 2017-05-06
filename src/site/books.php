@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Sherzodbek
@@ -12,7 +13,9 @@ $orders = Books::render();
 
 foreach ($orders as $order){
     echo $order->time;
+    echo " ";
     echo $order->total_cost;
+    echo "<br>";
 }
 
 ?>

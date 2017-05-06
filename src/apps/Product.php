@@ -3,10 +3,31 @@
 
 class Product extends Model
 {
+    public $id;
     public $name;
     public $user;
     public $cost;
+    public $type;
     public $is_delete = false;
+
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
 
     /**
      * @return mixed
@@ -60,6 +81,23 @@ class Product extends Model
         $this->cost = $cost;
     }
 
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 
     /**
      * @return bool
