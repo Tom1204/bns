@@ -3,4 +3,8 @@ require_once "../Controllers/Dashboard.php";
 
 $data = Dashboard::render();
 extract($data);
-echo $user->username;
+if($user){
+	echo $user->username;
+}else{
+	echo "exception";
+}
