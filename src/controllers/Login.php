@@ -23,3 +23,5 @@ class Login extends FormView
         url("statistics.php");
     }
 }
+
+?>

@@ -7,8 +7,15 @@ class Dashboard extends View
 
     public static function render($parameter = null)
     {
-        $auth = Authentication::get(array("session" => $_COOKIE["Auth"]));
-        $user = User::get(array("id"=>$auth->user));
-        return array("user" => $user);
+    	if(isset($_COOKIE["Auth"])){
+	        $auth = Authentication::get(array("session" => $_COOKIE["Auth"]));  		
+	        $user = User::get(array("id"=>$auth->user));
+	        return array("user" => $user);
+    	}else{
+    		echo "Failed Auth";
+    		return null;
+    	}
     }
 }
+
+?>

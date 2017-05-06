@@ -1,4 +1,6 @@
 <?php
+    require_once "../Controllers/Products.php";
+    $products = Products::render();
 ?>
 
 <!DOCTYPE html>
@@ -154,26 +156,27 @@
                         </tr>
                         </thead>
                         <tbody>
+
                         <?php
-                        for ($i = 0; $i < 50; $i++) {
+                        foreach ($products as $product) {
                             ?>
                             <tr>
                                 <td></td>
                                 <td>
-                                    <div contenteditable>apple</div>
+                                    <div contenteditable><?php echo $product->name?></div>
                                 </td>
 
                                 <td>
-                                    <div contenteditable>food</div>
+                                    <div contenteditable><?php echo $product->type?></div>
 
                                 </td>
 
                                 <td>
-                                    <div contenteditable>30$</div>
+                                    <div contenteditable><?php echo $product->cost?></div>
                                 </td>
 
                                 <td>
-                                    <div contenteditable>healthy food, eat it</div>
+                                    <div contenteditable><?php echo $product->description?></div>
                                 </td>
 
                             </tr>
