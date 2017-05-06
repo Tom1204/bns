@@ -32,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
+            <a class="navbar-brand" href="#"><span>Producer</span>Dashboard</a>
             <ul class="user-menu">
                 <li class="dropdown pull-right">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
@@ -55,23 +55,23 @@
         </div>
     </form>
     <ul class="nav menu">
-        <li><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Statistics</a></li>
-        <li><a href="widgets.html"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Orders</a></li>
-        <li><a href="charts.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> My books</a></li>
-        <li><a href="forms.html"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> My Products</a></li>
+        <li><a href="statistics.php"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Statistics</a></li>
+        <li><a href="widgets.html"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> My books</a></li>
+        <li><a href="charts.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Purchase</a></li>
+        <li><a href="myProducts.php"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> My Products</a></li>
         <li class="active"><a href="panels.html"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Add product</a></li>
         <li><a href="icons.html"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Available products</a></li>
         <li role="presentation" class="divider"></li>
         <li><a href="login.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Log out</a></li>
     </ul>
-    <div class="attribution">Template by <a href="http://www.medialoot.com/item/lumino-admin-bootstrap-template/">Medialoot</a><br/><a href="http://www.glyphs.co" style="color: #333;">Icons by Glyphs</a></div>
+    <div class="attribution">Design by <a href="http://www.medialoot.com/item/lumino-admin-bootstrap-template/">BNS</a><br/><a href="http://www.glyphs.co" style="color: #333;">Icons by BNS</a></div>
 </div><!--/.sidebar-->
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-            <li class="active">Icons</li>
+            <li class="active">Products</li>
         </ol>
     </div><!--/.row-->
 
@@ -119,7 +119,7 @@
                                 <textarea class="form-control" rows="3"></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary right" style="float: right">Add product</button>
+                            <button type="submit" class="btn btn-primary" style="float: right">Add product</button>
 
                     </div>
                     </form>
