@@ -1,5 +1,5 @@
 <?php
-require "../apps/Authentication.php";
+require_once "../apps/Authentication.php";
 
 echo $_SERVER["REQUEST_URI"];
 

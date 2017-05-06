@@ -1,13 +1,16 @@
 <?php
-require "../basic/View.php";
-require "../apps/User.php";
+require_once "../basic/FormView.php";
+require_once "../basic/template_renderer.php";
+require_once "../apps/User.php";
 
-class Registration extends View{
-
+class Registration extends FormView
+{
     public static $model;
+    public static $template_name = "registration.php";
     public static $success_url = "/login.php";
 
-    public static function render($parameter = null){
+    public static function render($parameter = null)
+    {
         $user = new User();
         $user->username = $_REQUEST["username"];
         $user->password = $_REQUEST["password"];
@@ -15,5 +18,6 @@ class Registration extends View{
         $user->full_name = $_REQUEST["full_name"];
         $user->email = $_REQUEST["email"];
         $user->save();
+        url('login.php');
     }
 }
