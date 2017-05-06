@@ -185,6 +185,9 @@
                         ?>
                         </tbody>
                     </table>
+
+                    <input type="button" value="Delete" class="btn btn-danger"/>
+
                 </div>
             </div>
         </div>

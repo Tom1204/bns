@@ -78,12 +78,12 @@
                     <use xlink:href="#stroked-dashboard-dial"></use>
                 </svg>
                 Statistics</a></li>
-        <li><a href="widgets.html">
+        <li><a href="myBooks.php">
                 <svg class="glyph stroked calendar">
                     <use xlink:href="#stroked-calendar"></use>
                 </svg>
                 My books</a></li>
-        <li><a href="charts.html">
+        <li><a href="purchase.php">
                 <svg class="glyph stroked line-graph">
                     <use xlink:href="#stroked-line-graph"></use>
                 </svg>
@@ -93,18 +93,18 @@
                     <use xlink:href="#stroked-pencil"></use>
                 </svg>
                 My Products</a></li>
-        <li class="active"><a href="panels.html">
+        <li class="active"><a href="addProduct.php">
                 <svg class="glyph stroked app-window">
                     <use xlink:href="#stroked-app-window"></use>
                 </svg>
                 Add product</a></li>
-        <li><a href="icons.html">
+        <li><a href="availableProducts.php">
                 <svg class="glyph stroked star">
                     <use xlink:href="#stroked-star"></use>
                 </svg>
                 Available products</a></li>
         <li role="presentation" class="divider"></li>
-        <li><a href="login.html">
+        <li><a href="login.php">
                 <svg class="glyph stroked male-user">
                     <use xlink:href="#stroked-male-user"></use>
                 </svg>
