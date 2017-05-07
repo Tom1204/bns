@@ -1,24 +1,22 @@
 <?php
-require_once "../Controllers/Products.php";
-//    $products = Products::render();
+require_once "../basic/template_renderer.php";
+require_once "../Controllers/ProductDetail.php";
 $session = $_COOKIE["Auth"];
-if (isset($session)) {
-    $products = Products::filter();
-} else {
+if (!isset($session)) {
     url('login.php');
 }
+$product = ProductDetail::render();
+$types = array("drink", "clothes", "food", "technology", "cars", "other")
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My products</title>
+    <title>Product information</title>
 
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/datepicker3.css" rel="stylesheet">
-    <link href="./assets/css/bootstrap-table.css" rel="stylesheet">
     <link href="./assets/css/styles.css" rel="stylesheet">
 
     <!--Icons-->
@@ -122,8 +120,7 @@ if (isset($session)) {
                 href="http://www.glyphs.co" style="color: #333;">Icons by BNS</a></div>
 </div><!--/.sidebar-->
 
-
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" 1>
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="#">
@@ -131,13 +128,13 @@ if (isset($session)) {
                         <use xlink:href="#stroked-home"></use>
                     </svg>
                 </a></li>
-            <li class="active">Product list</li>
+            <li class="active">Products</li>
         </ol>
     </div><!--/.row-->
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">My Products</h1>
+            <h1 class="page-header">Add Products</h1>
         </div>
     </div><!--/.row-->
 
@@ -145,108 +142,85 @@ if (isset($session)) {
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Product list</div>
+                <div class="panel-heading">Product Details</div>
                 <div class="panel-body">
-                    <table class="table" data-toggle="table" data-url="tables/data1.json" data-show-refresh="true"
-                           data-show-toggle="true" data-show-columns="true" data-search="true"
-                           data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name"
-                           data-sort-order="desc">
-                        <thead>
-                        <tr>
-                            <th data-field="id" data-sortable="true">ID</th>
-                            <th data-field="name" data-sortable="true">Name</th>
-                            <th data-field="type" data-sortable="true">Type</th>
-                            <th data-field="price" data-sortable="true">Price $</th>
-                            <th data-field="description" data-sortable="true">Description</th>
-                            <th data-field="actions" data-sortable="true">Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        foreach ($products as $product) {
-                            ?>
-                            <tr>
-                                <td>
-                                    <?php echo $product->id ?>
-                                </td>
-                                <td>
-                                    <div>
-                                        <a href="productDetail.php?id=<?php echo $product->id ?>"> <?php echo $product->name ?></a>
-                                    </div>
-                                </td>
+                    <div class="col-md-6">
+                        <form role="form" action="productDetail.php?id=<?echo $product->id?>" method="post">
 
-                                <td>
-                                    <div><?php echo $product->type ?></div>
+                            <div class="form-group">
+                                <label>Product name</label>
+                                <input class="form-control" name="name" value="<? echo $product->name ?>"
+                                       placeholder="name" required>
+                            </div>
 
-                                </td>
 
-                                <td>
-                                    <div><?php echo $product->cost ?></div>
-                                </td>
+                            <div class="form-group">
+                                <label>Product type</label>
+                                <select class="form-control" name="type">
+                                    <?
+                                    echo "<option>$product->type</option>";
+                                    foreach ($types as $type) {
+                                        if ($type != $product->type) {
+                                            echo "<option>$type</option>";
+                                        }
+                                    } ?>
+                                </select>
+                            </div>
 
-                                <td>
-                                    <div><?php echo $product->description ?></div>
-                                </td>
-                                <td>
-                                    <span>
-                                        <button type="submit" class="btn btn-primary" name="update">Update</button>
-                                        <button type="submit" class="btn btn-danger" name="delete">Delete</button>
-                                    </span>
 
-                                </td>
-                            </tr>
-                            <?php
-                        }
-                        ?>
-                        </tbody>
+                            <div class="form-group">
+                                <label>Cost</label>
+                                <input class="form-control" name="cost" value="<? echo $product->cost ?>"
+                                       placeholder="price $" required>
+                            </div>
 
-                    </table>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" name="description" rows="3"
+                                          required><? echo $product->description ?></textarea>
+                            </div>
+                            <input type="submit" class="btn btn-danger" value="Delete" name="delete"
+                                   style="float: left"/>
+                            <input type="submit" class="btn btn-primary" value="Update" name="update"
+                                   style="float: right"/>
 
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div><!--/.row-->
+            </div><!-- /.col-->
+        </div><!-- /.row -->
 
-</div><!--/.main-->
+    </div><!--/.main-->
 
-<script src="./assets/js/jquery-1.11.1.min.js"></script>
-<script src="./assets/js/bootstrap.min.js"></script>
-<script src="./assets/js/chart.min.js"></script>
-<script src="./assets/js/chart-data.js"></script>
-<script src="./assets/js/easypiechart.js"></script>
-<script src="./assets/js/easypiechart-data.js"></script>
-<script src="./assets/js/bootstrap-datepicker.js"></script>
-<script src="./assets/js/bootstrap-table.js"></script>
-<script>
+    <?php
+    if (isset($_POST["delete"]) or isset($_POST["update"])) {
+        ProductDetail::render();
+    }
+    ?>
 
+    <script src="./assets/js/jquery-1.11.1.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/chart.min.js"></script>
+    <script src="./assets/js/chart-data.js"></script>
+    <script src="./assets/js/easypiechart.js"></script>
+    <script src="./assets/js/easypiechart-data.js"></script>
+    <script src="./assets/js/bootstrap-datepicker.js"></script>
+    <script>
+        !function ($) {
+            $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
+                $(this).find('em:first').toggleClass("glyphicon-minus");
+            });
+            $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+        }(window.jQuery);
 
-    $('.table').on('click', '.btn-danger', function () {
-        $(this).parents('tr').remove();
-        var id = $(this).parents("tr").children("td:first").text();
-    });
+        $(window).on('resize', function () {
+            if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+        })
+        $(window).on('resize', function () {
+            if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+        })
+    </script>
 
-
-    $('.table').on('click', '.btn-primary', function () {
-        var id = $(this).parents("tr").children("td:first").text();
-        alert(id);
-    });
-
-    !function ($) {
-        $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
-            $(this).find('em:first').toggleClass("glyphicon-minus");
-        });
-        $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
-    }(window.jQuery);
-
-    $(window).on('resize', function () {
-        if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
-    })
-    $(window).on('resize', function () {
-        if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
-    })
-
-</script>
 </body>
 
 </html>
-
