@@ -206,6 +206,11 @@
 			$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
 		}(window.jQuery);
 
+        var selects = $('#users-table').bootstrapTable('getSelections');
+        ids = $.map(selects, function (row) {
+            return row.id;
+        });
+
 		$(window).on('resize', function () {
 		  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
 		})
