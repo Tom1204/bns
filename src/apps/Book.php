@@ -10,9 +10,10 @@ class Book extends Model
 {
     public $id;
     public $productId;
-    public $userId;
+    public $user;
     public $total_cost;
     public $time;
+    public $is_delete=0;
 
     /**
      * @return mixed

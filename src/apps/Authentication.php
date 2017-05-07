@@ -6,6 +6,7 @@ class Authentication extends Model
 {
     public $user;
     public $session;
+    public $is_delete = 0;
 
     static public function login($username, $password)
     {
@@ -18,7 +19,7 @@ class Authentication extends Model
         if ($authenticated_user != null) {
             return $authenticated_user->session;
         }
-        $session = hash("haval128,4", $username.$password);
+        $session = hash("haval128,4", $username . $password);
         $auth = Authentication::create($user->id, $session);
         $auth->save();
         return $session;

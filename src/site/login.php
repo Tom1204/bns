@@ -37,10 +37,10 @@ require_once "../Controllers/Login.php";
                         <div class="form-group">
                             <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
                         </div>
-                        <div>
-                            <p><a>Register</a></p>
+                        <div class="form-group">
+                            <p><a href="registration.php">Register</a></p>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Login" name="login">
+                        <input type="submit" class ="btn btn-primary" value="Login" name="login">
                     </fieldset>
                 </form>
             </div>

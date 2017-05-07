@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: tom1
@@ -8,46 +7,30 @@
  */
 class Query
 {
-
-    public $foreign_keys = array();
-
     function properties()
     {
         $columns = "";
         $values = "";
         $map = get_object_vars($this);
         unset($map["id"]);
-        unset($map["foreign_keys"]);
         $count = count($map);
         $i = 0;
         foreach ($map as $key => $value) {
             if ($i != $count - 1) {
-                if (in_array($key, $this->foreign_keys)) {
-                    $columns .= "$key,";
-                    $values .= "$value,";
-                } else {
-                    $columns .= "$key,";
-                    $values .= "'$value',";
-                }
+                $columns .= "$key,";
+                $values .= "'$value',";
             } else {
-                if (in_array($key, $this->foreign_keys)) {
-                    $columns .= "$key";
-                    $values .= "$value";
-                } else {
-                    $columns .= "$key";
-                    $values .= "'$value'";
-                }
+                $columns .= "$key";
+                $values .= "'$value'";
             }
             $i++;
         }
         return array("columns" => $columns, "values" => $values);
     }
-
     static function get_query(array $args)
     {
         $query = "";
         $count = count($args);
-        unset($args["foreign_keys"]);
         $i = 0;
         foreach ($args as $key => $value) {
             if ($i != $count - 1) {
@@ -59,13 +42,11 @@ class Query
         }
         return $query;
     }
-
     function get_update_query()
     {
         $query = "";
         $map = get_object_vars($this);
         unset($map["id"]);
-        unset($map["foreign_keys"]);
         $count = count($map);
         $i = 0;
         foreach ($map as $key => $value) {

@@ -18,9 +18,11 @@ class Login extends FormView
         $username = $_POST["username"];
         $password = $_POST["password"];
         $session = Authentication::login($username, $password);
-        setcookie("Auth", $session, time()+86400*30);
+//        echo $session;
+        setcookie("Auth", $session, time() + 86400 * 30);
         url("statistics.php");
     }
+
 }
 
 ?>

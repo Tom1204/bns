@@ -1,5 +1,5 @@
 <?php
-require_once "../Controllers/Products.php";
+require_once "../controllers/Products.php";
 
 $products = Products::render();
 

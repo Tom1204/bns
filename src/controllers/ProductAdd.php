@@ -16,19 +16,19 @@ class ProductAdd extends FormView
     {
         $product = new Product();
         $product->name = $_POST["name"];
-        $product->type = "food";
+        $product->type = $_POST["type"];
         $product->cost = $_POST["cost"];
         $product->description = $_POST["description"];
 
         $session = $_COOKIE["Auth"];
-        $auth = Authentication::get(array("session"=>$session));
+        $auth = Authentication::get(array("session" => $session));
         $userId = $auth->user;
 
         $product->user = $userId;
 
         $product->save();
 
-//        url('myProducts.php');
+        url('myProducts.php');
     }
 
 }

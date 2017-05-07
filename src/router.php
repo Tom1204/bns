@@ -1,10 +1,12 @@
 <?php
+
 require_once "basic/Url.php";
 require_once "Controllers/Registration.php";
 require_once "Controllers/Login.php";
 require_once "Controllers/Dashboard.php";
-require_once "Controllers/Users.php";
+require_once "Controllers/Books.php";
 require_once "Controllers/Products.php";
+require_once "Controllers/Statistics.php";
 
 
 class Urls extends Url

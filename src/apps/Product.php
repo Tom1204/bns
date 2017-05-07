@@ -7,8 +7,8 @@ class Product extends Model
     public $user;
     public $cost;
     public $type;
+    public $description;
     public $is_delete = 0;
-    public $foreign_keys = array("user","cost");
 
 
     /**

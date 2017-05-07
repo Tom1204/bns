@@ -2,7 +2,7 @@
 
 class Url
 {
-    public static $urls = array("/^addProduct$" => array("ProductAdd", "as_view"),
+    public static $urls = array("/",
 //                "/^register$" => array("Registration", "as_view"),
     );
 
