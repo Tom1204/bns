@@ -1,10 +1,21 @@
 <?php
     require_once "../Controllers/Books.php";
+    require_once "../Controllers/Products.php";
+    require_once "../apps/User.php";
 
     $session=$_COOKIE["Auth"];
 
     if(isset($session)){
         $orders = Books::render();
+
+        foreach ($orders as $order) {
+            $objectproduct=Product::get(array("id"=>$order->productId));
+            $userobject=User::get(array("id"=>$objectproduct->user));
+            $order->productId=$objectproduct->name;
+            $order->user=$userobject->full_name;
+        }
+
+
     }else{
         url('login.php');
     }
@@ -140,26 +151,24 @@
                             <th data-field="productName" data-sortable="true">Product name</th>
                             <th data-field="price" data-sortable="true">Price</th>
                             <th data-field="producerName" data-sortable="true">Producer name</th>
-                            <th data-field="email" data-sortable="true">Email</th>
                             <th data-field="time" data-sortable="true">Time</th>
                         </tr>
                         </thead>
                         <tbody>
 
                         <?php
-                        foreach ($orders as $order) {
-                            ?>
+                            foreach ($orders as $order) {
+                                ?>
 
-                            <tr>
-                                <td><?php echo $order->productId?></td>
-                                <td><?php echo $order->total_cost?></td>
-                                <td><?php echo $order->user?></td>
-                                <td><?php echo $order->user?></td>
-                                <td><?php echo $order->time?></td>
-                            </tr>
+                                <tr>
+                                    <td><?php echo $order->productId?></td>
+                                    <td><?php echo $order->total_cost?></td>
+                                    <td><?php echo $order->user?></td>
+                                    <td><?php echo $order->time?></td>
+                                </tr>
 
-                            <?php
-                        }
+                                <?php
+                            }
                         ?>
 
                         </tbody>

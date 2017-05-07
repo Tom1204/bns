@@ -145,11 +145,11 @@
                 <div class="panel-heading">Product Details</div>
                 <div class="panel-body">
                     <div class="col-md-6">
-                        <form role="form" action="productDetail.php?id=<?php echo $product->id?>" method="post">
+                        <form role="form" action="productDetail.php?id=<?php if(isset($product))echo $product->id?>" method="post">
 
                             <div class="form-group">
                                 <label>Product name</label>
-                                <input class="form-control" name="name" value="<?php echo $product->name ?>"
+                                <input class="form-control" name="name" value="<?php if(isset($product))echo $product->name ?>"
                                        placeholder="name" required>
                             </div>
 
@@ -158,10 +158,12 @@
                                 <label>Product type</label>
                                 <select class="form-control" name="type">
                                     <?php
-                                        echo "<option>$product->type</option>";
-                                        foreach ($types as $type) {
-                                            if ($type != $product->type) {
-                                                echo "<option>$type</option>";
+                                        if(isset($product)) {
+                                            echo "<option>$product->type</option>";
+                                            foreach ($types as $type) {
+                                                if ($type != $product->type) {
+                                                    echo "<option>$type</option>";
+                                                }
                                             }
                                         }
                                     ?>
@@ -171,14 +173,14 @@
 
                             <div class="form-group">
                                 <label>Cost</label>
-                                <input class="form-control" name="cost" value="<?php echo $product->cost ?>"
+                                <input class="form-control" name="cost" value="<?php if(isset($product))echo $product->cost ?>"
                                        placeholder="price $" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Description</label>
                                 <textarea class="form-control" name="description" rows="3"
-                                          required><?php echo $product->description ?></textarea>
+                                          required><?php if(isset($product))echo $product->description ?></textarea>
                             </div>
                             <input type="submit" class="btn btn-danger" value="Delete" name="delete"
                                    style="float: left"/>
@@ -194,9 +196,9 @@
     </div><!--/.main-->
 
     <?php
-    if (isset($_POST["delete"]) or isset($_POST["update"])) {
-        ProductDetail::render();
-    }
+        if (isset($_POST["delete"]) or isset($_POST["update"])) {
+            ProductDetail::render();
+        }
     ?>
 
     <script src="./assets/js/jquery-1.11.1.min.js"></script>

@@ -4,6 +4,7 @@
     $session=$_COOKIE["Auth"];
     if(isset($session)){
         $orders = Books::filterBooks();
+        echo "dkjhkjskj";
     }else{
         url('login.php');
     }
@@ -158,11 +159,11 @@
                             foreach ($orders as $order) {
                                 ?>
                                 <tr>
-                                    <td><?php echo $order->productId?></td>
-                                    <td><?php echo $order->total_cost?></td>
-                                    <td><?php echo $order->user?></td>
-                                    <td><?php echo $order->user?></td>
-                                    <td><?php echo $order->time?></td>
+                                    <td><?php echo $order->productId;?></td>
+                                    <td><?php echo $order->total_cost;?></td>
+                                    <td><?php echo $order->user;?></td>
+                                    <td><?php echo $order->user;?></td>
+                                    <td><?php echo $order->time;?></td>
                                 </tr>
                                 <?php
                             }

@@ -4,7 +4,13 @@
     $session=$_COOKIE["Auth"];
 
     if(isset($session)){
-    $products = Products::render();
+        $products = Products::render();
+
+        foreach ($products as $product){
+            $userobject=User::get(array("id"=>$product->user));
+            $product->user=$userobject->full_name;
+        }
+
     }else{
         url('login.php');
     }
@@ -131,35 +137,41 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Available product list</div>
                 <div class="panel-body">
-                    <table data-toggle="table" data-url="tables/data1.json" data-show-refresh="true"
+                    <table class="table" data-toggle="table" data-url="tables/data1.json" data-show-refresh="true"
                            data-show-toggle="true" data-show-columns="true" data-search="true"
                            data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name"
                            data-sort-order="desc">
                         <thead>
                         <tr>
+                            <th data-field="id" data-sortable="true">ID</th>
                             <th data-field="productName" data-sortable="true">Product name</th>
                             <th data-field="price" data-sortable="true">Price</th>
                             <th data-field="producerName" data-sortable="true">Producer name</th>
-                            <th data-field="email" data-sortable="true">Email</th>
+                            <th data-field="email" data-sortable="true">Description</th>
                             <th data-field="time" data-sortable="true">Type</th>
+                            <th data-field="action" data-sortable="true">Action</th>
                         </tr>
                         </thead>
                         <tbody>
 
                         <?php
-
-                        foreach ($products as $product) {
-                            ?>
-                            <tr>
-                                <td><?php echo $product->name?></td>
-                                <td><?php echo $product->cost?></td>
-                                <td><?php echo $product->user?></td>
-                                <td><?php echo $product->user?></td>
-                                <td><?php echo $product->type?></td>
-                            </tr>
-                            <?php
-                        }
-
+                            if(isset($products)) {
+                                foreach ($products as $product) {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $product->id; ?></td>
+                                        <td><?php echo $product->name; ?></td>
+                                        <td><?php echo $product->cost; ?></td>
+                                        <td><?php echo $product->user; ?></td>
+                                        <td><?php echo $product->description; ?></td>
+                                        <td><?php echo $product->type; ?></td>
+                                        <td>
+                                            <button class="btn btn-primary">Buy</button>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                            }
                         ?>
                         </tbody>
                     </table>
@@ -179,6 +191,12 @@
 <script src="./assets/js/bootstrap-datepicker.js"></script>
 <script src="./assets/js/bootstrap-table.js"></script>
 <script>
+
+    $('.table').on('click','.btn-primary',function () {
+        var id = $(this).parents("tr").children("td:first").text();
+        window.location.replace("temporary.php?id=" + id);
+    });
+
     !function ($) {
         $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
             $(this).find('em:first').toggleClass("glyphicon-minus");

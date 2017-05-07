@@ -6,12 +6,32 @@ require_once "../basic/Model.php";
 
 class User extends Model
 {
+    public $id;
     public $username;
     public $password;
     public $full_name;
     public $user_type;
     public $email;
     public $is_delete = 0;
+
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
 
     /**
      * @return mixed
