@@ -134,7 +134,7 @@ $types = array("drink", "clothes", "food", "technology", "cars", "other")
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Add Products</h1>
+            <h1 class="page-header">Product information</h1>
         </div>
     </div><!--/.row-->
 
