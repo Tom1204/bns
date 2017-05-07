@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My books</title>
+    <title>My purchases</title>
 
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/datepicker3.css" rel="stylesheet">
@@ -95,8 +95,7 @@
                     <use xlink:href="#stroked-male-user"></use>
                 </svg>Log out</a></li>
     </ul>
-    <div class="attribution">Design by <a
-            href="http://www.medialoot.com/item/lumino-admin-bootstrap-template/">BNS</a><br/><a
+    <div class="attribution">Design by <a>BNS</a><br/><a
             href="http://www.glyphs.co" style="color: #333;">Icons by BNS</a></div>
 </div><!--/.sidebar-->
 
