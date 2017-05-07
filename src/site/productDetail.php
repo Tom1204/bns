@@ -1,17 +1,19 @@
 <?php
-    require_once "../basic/template_renderer.php";
-    require_once "../Controllers/ProductAdd.php";
-    $session=$_COOKIE["Auth"];
-    if(!isset($session)){
-        url('login.php');
-    }
+require_once "../basic/template_renderer.php";
+require_once "../Controllers/ProductDetail.php";
+$session = $_COOKIE["Auth"];
+if (!isset($session)) {
+    url('login.php');
+}
+$product = ProductDetail::render();
+$types = array("drink", "clothes", "food", "technology", "cars", "other")
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Add products</title>
+    <title>Product information</title>
 
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/datepicker3.css" rel="stylesheet">
@@ -92,12 +94,12 @@
                     <use xlink:href="#stroked-line-graph"></use>
                 </svg>
                 Purchase</a></li>
-        <li><a href="myProducts.php">
+        <li class="active"><a href="myProducts.php">
                 <svg class="glyph stroked pencil">
                     <use xlink:href="#stroked-pencil"></use>
                 </svg>
                 My Products</a></li>
-        <li class="active"><a href="addProduct.php">
+        <li><a href="addProduct.php">
                 <svg class="glyph stroked app-window">
                     <use xlink:href="#stroked-app-window"></use>
                 </svg>
@@ -118,7 +120,7 @@
                 href="http://www.glyphs.co" style="color: #333;">Icons by BNS</a></div>
 </div><!--/.sidebar-->
 
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main"1>
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" 1>
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="#">
@@ -132,7 +134,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Add Products</h1>
+            <h1 class="page-header">Product information</h1>
         </div>
     </div><!--/.row-->
 
@@ -143,38 +145,44 @@
                 <div class="panel-heading">Product Details</div>
                 <div class="panel-body">
                     <div class="col-md-6">
-                        <form role="form" action="addProduct.php" method="post">
+                        <form role="form" action="productDetail.php?id=<?echo $product->id?>" method="post">
 
                             <div class="form-group">
                                 <label>Product name</label>
-                                <input class="form-control" name="name" placeholder="name" required>
+                                <input class="form-control" name="name" value="<? echo $product->name ?>"
+                                       placeholder="name" required>
                             </div>
 
 
                             <div class="form-group">
                                 <label>Product type</label>
                                 <select class="form-control" name="type">
-                                    <option>drink</option>
-                                    <option>clothes</option>
-                                    <option>food</option>
-                                    <option>technology</option>
-                                    <option>cars</option>
-                                    <option>other</option>
+                                    <?
+                                    echo "<option>$product->type</option>";
+                                    foreach ($types as $type) {
+                                        if ($type != $product->type) {
+                                            echo "<option>$type</option>";
+                                        }
+                                    } ?>
                                 </select>
                             </div>
 
 
                             <div class="form-group">
                                 <label>Cost</label>
-                                <input class="form-control" name="cost" placeholder="price $" required>
+                                <input class="form-control" name="cost" value="<? echo $product->cost ?>"
+                                       placeholder="price $" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" name="description" rows="3" required></textarea>
+                                <textarea class="form-control" name="description" rows="3"
+                                          required><? echo $product->description ?></textarea>
                             </div>
-
-                            <input type="submit" class="btn btn-primary" value="Add product" name="submit" style="float: right"/>
+                            <input type="submit" class="btn btn-danger" value="Delete" name="delete"
+                                   style="float: left"/>
+                            <input type="submit" class="btn btn-primary" value="Update" name="update"
+                                   style="float: right"/>
 
                         </form>
                     </div>
@@ -185,8 +193,8 @@
     </div><!--/.main-->
 
     <?php
-    if (isset($_POST["submit"])) {
-        ProductAdd::render();
+    if (isset($_POST["delete"]) or isset($_POST["update"])) {
+        ProductDetail::render();
     }
     ?>
 

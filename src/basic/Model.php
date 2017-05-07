@@ -7,11 +7,13 @@ require_once "Query.php";
 abstract class Model extends Query
 {
     public $id = null;
+    static $counter = 0;
+
 
     static function all()
     {
         $class_name = get_called_class();
-        $query = "SELECT * FROM " . $class_name;
+        $query = "SELECT * FROM " . $class_name . " WHERE is_delete=0";
         $result = DBConnector::Instance()->make_query($query);
         $objects = array();
         if (mysqli_num_rows($result) != 0) {
@@ -28,7 +30,7 @@ abstract class Model extends Query
     {
         $query_args = self::get_query($query);
         $class_name = get_called_class();
-        $query_string = "SELECT * FROM " . $class_name . " WHERE " . $query_args;
+        $query_string = "SELECT * FROM " . $class_name . " WHERE is_delete=0 AND " . $query_args;
         $result = DBConnector::Instance()->make_query($query_string);
         if (mysqli_num_rows($result) != 0) {
             $object = mysqli_fetch_object($result, $class_name);
@@ -42,7 +44,7 @@ abstract class Model extends Query
     {
         $query_args = self::get_query($query);
         $class_name = get_called_class();
-        $query_string = "SELECT * FROM " . $class_name . " WHERE " . $query_args;
+        $query_string = "SELECT * FROM " . $class_name . " WHERE is_delete=0 AND " . $query_args;
         $result = DBConnector::Instance()->make_query($query_string);
         $objects = array();
         if (mysqli_num_rows($result) != 0) {
@@ -58,6 +60,7 @@ abstract class Model extends Query
     function save()
     {
         $class_name = get_called_class();
+        echo "Update";
         if ($this->id != null) {
             $this->update();
             return;
@@ -65,12 +68,13 @@ abstract class Model extends Query
         $properties = $this->properties();
         $columns = $properties["columns"];
         $values = $properties["values"];
-        $query = "INSERT INTO  $class_name ($columns) VALUES ($values);";
+        $query = "INSERT INTO  $class_name ($columns) VALUES($values);";
         DBConnector::Instance()->insert($query);
     }
 
 
-    public static function advancedquery($query){
+    public static function advancedquery($query)
+    {
         $class_name = get_called_class();
         $result = DBConnector::Instance()->make_query($query);
         if (mysqli_num_rows($result) != 0) {

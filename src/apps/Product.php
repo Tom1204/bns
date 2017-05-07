@@ -3,12 +3,12 @@
 
 class Product extends Model
 {
-    public $id;
     public $name;
     public $user;
     public $cost;
     public $type;
-    public $is_delete = false;
+    public $description;
+    public $is_delete = 0;
 
 
     /**

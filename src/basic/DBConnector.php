@@ -5,7 +5,7 @@ class DBConnector
 {
     private $host = "localhost:8889";
     private $user = "root";
-    private $password = "1";
+    private $password = "aprel12aprel15";
     private $selected_database_name = "db";
     private $db;
     private $selected_database;

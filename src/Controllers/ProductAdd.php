@@ -1,7 +1,8 @@
 <?php
-    require_once "../basic/FormView.php";
-    require_once "../basic/template_renderer.php";
-    require_once "../apps/Product.php";
+require_once "../basic/FormView.php";
+require_once "../basic/template_renderer.php";
+require_once "../apps/Product.php";
+
 /**
  * Created by PhpStorm.
  * User: Tulkinjon
@@ -13,17 +14,17 @@ class ProductAdd extends FormView
 
     public static function render($parameter = null)
     {
-        $product=new Product();
+        $product = new Product();
         $product->name = $_POST["name"];
         $product->type = $_POST["type"];
         $product->cost = $_POST["cost"];
         $product->description = $_POST["description"];
 
-        $session=$_COOKIE["Auth"];
-        $auth=Authentication::get(array("session"=>$session));
-        $userId=$auth->user;
+        $session = $_COOKIE["Auth"];
+        $auth = Authentication::get(array("session" => $session));
+        $userId = $auth->user;
 
-        $product->user=$userId;
+        $product->user = $userId;
 
         $product->save();
 
