@@ -1,6 +1,6 @@
 <?php
     require_once "../Controllers/Products.php";
-//    $products = Products::render();
+
     $session=$_COOKIE["Auth"];
     if(isset($session)){
         $products = Products::filter();
@@ -226,6 +226,11 @@
 
     $('.table').on('click', '.btn-primary', function () {
         var id = $(this).parents("tr").children("td:first").text();
+        document.cookie = 'id=' + id;
+        <?php
+            $id=$_COOKIE["id"];
+
+        ?>
         alert(id);
     });
 
