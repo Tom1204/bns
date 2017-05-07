@@ -1,6 +1,5 @@
 <?php
     require_once "../Controllers/Products.php";
-//    $products = Products::render();
     $session=$_COOKIE["Auth"];
     if(isset($session)){
         $products = Products::filter();
@@ -158,7 +157,6 @@
                             <th data-field="type" data-sortable="true">Type</th>
                             <th data-field="price" data-sortable="true">Price $</th>
                             <th data-field="description" data-sortable="true">Description</th>
-                            <th data-field="actions" data-sortable="true">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -185,13 +183,6 @@
                                 <td>
                                     <div contenteditable><?php echo $product->description ?></div>
                                 </td>
-                                <td>
-                                    <span>
-                                        <button type="submit" class="btn btn-primary" name="update">Update</button>
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </span>
-
-                                </td>
                             </tr>
                             <?php
                         }
@@ -216,18 +207,6 @@
 <script src="./assets/js/bootstrap-datepicker.js"></script>
 <script src="./assets/js/bootstrap-table.js"></script>
 <script>
-
-
-    $('.table').on('click', '.btn-danger', function () {
-        $(this).parents('tr').remove();
-        var id = $(this).parents("tr").children("td:first").text();
-    });
-
-
-    $('.table').on('click', '.btn-primary', function () {
-        var id = $(this).parents("tr").children("td:first").text();
-        alert(id);
-    });
 
     !function ($) {
         $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
