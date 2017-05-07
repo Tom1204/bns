@@ -52,7 +52,7 @@ require_once "../Controllers/Registration.php";
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="user_type">
                                     <li><a href="#">Customer</a></li>
-                                    <li><a href="#">Suppler</a></li>
+                                    <li><a href="#">Supplier</a></li>
                                 </ul>
                             </div>
                         </div>

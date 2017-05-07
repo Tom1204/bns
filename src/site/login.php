@@ -32,26 +32,27 @@ require_once "../Controllers/Login.php";
                 <form role="form" method="post" action="login.php">
                     <fieldset>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Username" name="username" type="text" autofocus="">
+                            <input class="form-control" placeholder="Username" name="username" type="text" autofocus="" required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                            <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
                         </div>
                         <div>
                             <p><a>Register</a></p>
                         </div>
-                        <input type="submit" value="Login" name="login">
+                        <input type="submit" class="btn btn-primary" value="Login" name="login">
                     </fieldset>
                 </form>
             </div>
         </div>
     </div><!-- /.col-->
 </div><!-- /.row -->
+
+
 <?php
 if (isset($_POST["login"])) {
     Login::render();
 }
-
 ?>
 
 

@@ -4,6 +4,7 @@ require_once "Controllers/Registration.php";
 require_once "Controllers/Login.php";
 require_once "Controllers/Dashboard.php";
 require_once "Controllers/Users.php";
+require_once "Controllers/Products.php";
 
 
 class Urls extends Url
@@ -12,6 +13,9 @@ class Urls extends Url
         "/^registration/" => array("Registration", "as_view"),
         "/^login/" => array("Login", "as_view"),
         "/^dashboard/" => array("Dashboard", "as_view"),
-        "/^users/" => array("Users", "as_view"),
+        "/^myBooks/" => array("Book", "as_view"),
+        "/^myProducts/" => array("Products", "as_view"),
+        "/^purchase/" => array("Purchase", "as_view"),
+        "/^statistics/" => array("Statistics", "as_view"),
     );
 }

@@ -7,6 +7,8 @@ require_once "Query.php";
 abstract class Model extends Query
 {
     public $id = null;
+    static $counter = 0;
+
 
     static function all()
     {
@@ -65,7 +67,8 @@ abstract class Model extends Query
         $properties = $this->properties();
         $columns = $properties["columns"];
         $values = $properties["values"];
-        $query = "INSERT INTO  $class_name ($columns) VALUES ($values);";
+        $query = "INSERT INTO  $class_name ($columns) VALUES($values);";
+        echo $query;
         DBConnector::Instance()->insert($query);
     }
 

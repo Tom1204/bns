@@ -8,21 +8,35 @@
  */
 class Query
 {
+
+    public $foreign_keys = array();
+
     function properties()
     {
         $columns = "";
         $values = "";
         $map = get_object_vars($this);
         unset($map["id"]);
+        unset($map["foreign_keys"]);
         $count = count($map);
         $i = 0;
         foreach ($map as $key => $value) {
             if ($i != $count - 1) {
-                $columns .= "$key,";
-                $values .= "'$value',";
+                if (in_array($key, $this->foreign_keys)) {
+                    $columns .= "$key,";
+                    $values .= "$value,";
+                } else {
+                    $columns .= "$key,";
+                    $values .= "'$value',";
+                }
             } else {
-                $columns .= "$key";
-                $values .= "'$value'";
+                if (in_array($key, $this->foreign_keys)) {
+                    $columns .= "$key";
+                    $values .= "$value";
+                } else {
+                    $columns .= "$key";
+                    $values .= "'$value'";
+                }
             }
             $i++;
         }
@@ -33,6 +47,7 @@ class Query
     {
         $query = "";
         $count = count($args);
+        unset($args["foreign_keys"]);
         $i = 0;
         foreach ($args as $key => $value) {
             if ($i != $count - 1) {
@@ -50,6 +65,7 @@ class Query
         $query = "";
         $map = get_object_vars($this);
         unset($map["id"]);
+        unset($map["foreign_keys"]);
         $count = count($map);
         $i = 0;
         foreach ($map as $key => $value) {
