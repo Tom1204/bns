@@ -20,7 +20,7 @@ class ProductAdd extends FormView
         $product->description = $_POST["description"];
 
         $session=$_COOKIE["Auth"];
-        $auth=Authentication::get(array("session=>$session"));
+        $auth=Authentication::get(array("session"=>$session));
         $userId=$auth->user;
 
         $product->user=$userId;

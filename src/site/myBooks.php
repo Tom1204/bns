@@ -1,5 +1,6 @@
 <?php
-
+    require_once "../Controllers/Books.php";
+    $orders = Books::render();
 ?>
 
 <!DOCTYPE html>
@@ -145,19 +146,21 @@
                         </tr>
                         </thead>
                         <tbody>
+
                         <?php
-                        for ($i = 0; $i < 50; $i++) {
+                        foreach ($orders as $order) {
                             ?>
                             <tr>
-                                <td>Apple</td>
-                                <td>300$</td>
-                                <td>Sardor</td>
-                                <td>sardor.islomov.96@gmail.com</td>
-                                <td>2017-04-11</td>
+                                <td><?php echo $order->productId?></td>
+                                <td><?php echo $order->total_cost?></td>
+                                <td><?php echo $order->user?></td>
+                                <td><?php echo $order->user?></td>
+                                <td><?php echo $order->time?></td>
                             </tr>
                             <?php
                         }
                         ?>
+
                         </tbody>
                     </table>
                 </div>
