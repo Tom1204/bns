@@ -13,6 +13,7 @@ class Book extends Model
     public $user;
     public $total_cost;
     public $time;
+    public $is_delete = false;
 
     /**
      * @return mixed
@@ -101,6 +102,24 @@ class Book extends Model
     public function setTime($time)
     {
         $this->time = $time;
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function isIsDelete()
+    {
+        return $this->is_delete;
+    }
+
+
+    /**
+     * @param bool $is_delete
+     */
+    public function setIsDelete($is_delete)
+    {
+        $this->is_delete = $is_delete;
     }
 
 

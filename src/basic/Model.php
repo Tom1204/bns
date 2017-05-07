@@ -69,6 +69,19 @@ abstract class Model extends Query
         DBConnector::Instance()->insert($query);
     }
 
+
+    public static function advancedquery($query){
+        $class_name = get_called_class();
+        $result = DBConnector::Instance()->make_query($query);
+        if (mysqli_num_rows($result) != 0) {
+            $object = mysqli_fetch_object($result, $class_name);
+            return $object;
+        } else {
+            return null;
+        }
+    }
+
+
     private function update()
     {
         $class_name = get_called_class();

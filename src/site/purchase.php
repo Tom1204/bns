@@ -1,6 +1,14 @@
 <?php
     require_once "../Controllers/Books.php";
-    $orders = Books::render();
+
+    $session=$_COOKIE["Auth"];
+
+    if(isset($session)){
+        $orders = Books::render();
+    }else{
+        url('login.php');
+    }
+
 ?>
 
 <!DOCTYPE html>

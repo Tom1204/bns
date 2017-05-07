@@ -1,6 +1,14 @@
 <?php
     require_once "../Controllers/Products.php";
+
+    $session=$_COOKIE["Auth"];
+
+    if(isset($session)){
     $products = Products::render();
+    }else{
+        url('login.php');
+    }
+
 ?>
 
 <!DOCTYPE html>

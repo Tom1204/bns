@@ -1,6 +1,10 @@
 <?php
     require_once "../basic/template_renderer.php";
     require_once "../Controllers/ProductAdd.php";
+    $session=$_COOKIE["Auth"];
+    if(!isset($session)){
+        url('login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html>

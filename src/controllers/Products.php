@@ -12,4 +12,15 @@ class Products extends View
         return $products;
     }
 
+
+    public static function filter($paramater = null){
+
+        $session=$_COOKIE["Auth"];
+        $auth=Authentication::get(array("session"=>$session));
+        $userId=$auth->user;
+
+        $products = Product::filter(array("user"=>$userId));
+        return $products;
+    }
+
 }

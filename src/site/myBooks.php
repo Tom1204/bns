@@ -1,6 +1,12 @@
 <?php
     require_once "../Controllers/Books.php";
-    $orders = Books::render();
+
+    $session=$_COOKIE["Auth"];
+    if(isset($session)){
+        $orders = Books::filterBooks();
+    }else{
+        url('login.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -149,16 +155,18 @@
                         <tbody>
 
                         <?php
-                        foreach ($orders as $order) {
-                            ?>
-                            <tr>
-                                <td><?php echo $order->productId?></td>
-                                <td><?php echo $order->total_cost?></td>
-                                <td><?php echo $order->user?></td>
-                                <td><?php echo $order->user?></td>
-                                <td><?php echo $order->time?></td>
-                            </tr>
-                            <?php
+                        if(isset($orders)){
+                            foreach ($orders as $order) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $order->productId?></td>
+                                    <td><?php echo $order->total_cost?></td>
+                                    <td><?php echo $order->user?></td>
+                                    <td><?php echo $order->user?></td>
+                                    <td><?php echo $order->time?></td>
+                                </tr>
+                                <?php
+                            }
                         }
                         ?>
 
