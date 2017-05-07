@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: tom1
@@ -28,7 +27,6 @@ class Query
         }
         return array("columns" => $columns, "values" => $values);
     }
-
     static function get_query(array $args)
     {
         $query = "";
@@ -44,7 +42,6 @@ class Query
         }
         return $query;
     }
-
     function get_update_query()
     {
         $query = "";

@@ -11,7 +11,7 @@ class User extends Model
     public $full_name;
     public $user_type;
     public $email;
-    public $is_delete = false;
+    public $is_delete = 0;
 
     /**
      * @return mixed

@@ -13,7 +13,7 @@ class Book extends Model
     public $user;
     public $total_cost;
     public $time;
-    public $is_delete = false;
+    public $is_delete = 0;
 
     /**
      * @return mixed
