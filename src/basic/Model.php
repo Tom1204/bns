@@ -31,7 +31,6 @@ abstract class Model extends Query
         $query_args = self::get_query($query);
         $class_name = get_called_class();
         $query_string = "SELECT * FROM " . $class_name . " WHERE is_delete=0 and " . $query_args;
-        echo $query_string;
         $result = DBConnector::Instance()->make_query($query_string);
         if (mysqli_num_rows($result) != 0) {
             $object = mysqli_fetch_object($result, $class_name);
@@ -90,7 +89,6 @@ abstract class Model extends Query
         $class_name = get_called_class();
         $query_args = $this->get_update_query();
         $query = "UPDATE $class_name SET  $query_args WHERE id=$this->id";
-        echo $query;
         DBConnector::Instance()->insert($query);
     }
 }

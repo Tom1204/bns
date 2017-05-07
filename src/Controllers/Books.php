@@ -28,8 +28,6 @@ class Books extends View
         $userId=$auth->user;
         $query = "SELECT * FROM product, book WHERE product.user=2".$userId." AND book.productId=product.id";
         $myBooks = Book::advancedquery($query);
-        echo $myBooks;
-        echo "cvsadkjcbashjbashjcbasjcbasjcbasjbcas";
         return $myBooks;
     }
 
