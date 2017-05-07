@@ -194,8 +194,6 @@ $products = Products::render();
 
                     </table>
 
-
-
                 </div>
             </div>
         </div>
