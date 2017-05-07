@@ -53,4 +53,23 @@ class User extends Model
         return $this->email;
     }
 
+
+    /**
+     * @return bool
+     */
+    public function isIsDelete()
+    {
+        return $this->is_delete;
+    }
+
+
+    /**
+     * @param bool $is_delete
+     */
+    public function setIsDelete($is_delete)
+    {
+        $this->is_delete = $is_delete;
+    }
+
+
 }

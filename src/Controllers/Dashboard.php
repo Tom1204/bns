@@ -12,7 +12,6 @@ class Dashboard extends View
 	        $user = User::get(array("id"=>$auth->user));
 	        return array("user" => $user);
     	}else{
-    		echo "Failed Auth";
     		return null;
     	}
     }

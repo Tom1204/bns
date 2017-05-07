@@ -19,6 +19,34 @@ class Books extends View
         $orders = Book::all();
         return $orders;
     }
+
+
+    public static function filterBooks($parameter = null){
+
+        $session=$_COOKIE["Auth"];
+        $auth=Authentication::get(array("session"=>$session));
+        $userId=$auth->user;
+        $query = "SELECT * FROM product, book WHERE product.user=2".$userId." AND book.productId=product.id";
+        $myBooks = Book::advancedquery($query);
+        echo $myBooks;
+        echo "cvsadkjcbashjbashjcbasjcbasjcbasjbcas";
+        return $myBooks;
+    }
+
+
+    public static function filterPurchase($parameter = null){
+
+        $session=$_COOKIE["Auth"];
+        $auth=Authentication::get(array("session"=>$session));
+        $userId=$auth->user;
+
+
+        $mypurchases = Book::filter(array("user"=>$userId));
+        return $mypurchases;
+
+    }
+
+
 }
 
 ?>

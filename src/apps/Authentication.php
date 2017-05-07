@@ -54,4 +54,41 @@ class Authentication extends Model
         return $user;
     }
 
+
+    /**
+     * @return null
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+    /**
+     * @param null $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function isIsDelete()
+    {
+        return $this->is_delete;
+    }
+
+
+    /**
+     * @param bool $is_delete
+     */
+    public function setIsDelete($is_delete)
+    {
+        $this->is_delete = $is_delete;
+    }
+
+
 }

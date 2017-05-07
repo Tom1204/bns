@@ -1,6 +1,12 @@
 <?php
     require_once "../Controllers/Products.php";
-    $products = Products::render();
+//    $products = Products::render();
+    $session=$_COOKIE["Auth"];
+    if(isset($session)){
+        $products = Products::filter();
+    }else{
+        url('login.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -112,8 +118,7 @@
                 </svg>
                 Log out</a></li>
     </ul>
-    <div class="attribution">Design by <a
-                href="http://www.medialoot.com/item/lumino-admin-bootstrap-template/">BNS</a><br/><a
+    <div class="attribution">Design by <a>BNS</a><br/><a
                 href="http://www.glyphs.co" style="color: #333;">Icons by BNS</a></div>
 </div><!--/.sidebar-->
 
@@ -142,51 +147,58 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Product list</div>
                 <div class="panel-body">
-                    <table data-toggle="table" data-url="tables/data1.json" data-show-refresh="true"
+                    <table class="table" data-toggle="table" data-url="tables/data1.json" data-show-refresh="true"
                            data-show-toggle="true" data-show-columns="true" data-search="true"
                            data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name"
                            data-sort-order="desc">
                         <thead>
                         <tr>
-                            <th data-field="state" data-checkbox="true">State</th>
+                            <th data-field="id" data-sortable="true">ID</th>
                             <th data-field="name" data-sortable="true">Name</th>
                             <th data-field="type" data-sortable="true">Type</th>
                             <th data-field="price" data-sortable="true">Price $</th>
                             <th data-field="description" data-sortable="true">Description</th>
+                            <th data-field="actions" data-sortable="true">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-
                         <?php
                         foreach ($products as $product) {
                             ?>
                             <tr>
-                                <td></td>
                                 <td>
-                                    <div contenteditable><?php echo $product->name?></div>
+                                    <?php echo $product->id ?>
+                                </td>
+                                <td>
+                                    <div contenteditable><?php echo $product->name ?></div>
                                 </td>
 
                                 <td>
-                                    <div contenteditable><?php echo $product->type?></div>
+                                    <div contenteditable><?php echo $product->type ?></div>
 
                                 </td>
 
                                 <td>
-                                    <div contenteditable><?php echo $product->cost?></div>
+                                    <div contenteditable><?php echo $product->cost ?></div>
                                 </td>
 
                                 <td>
-                                    <div contenteditable><?php echo $product->description?></div>
+                                    <div contenteditable><?php echo $product->description ?></div>
                                 </td>
+                                <td>
+                                    <span>
+                                        <button type="submit" class="btn btn-primary" name="update">Update</button>
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </span>
 
+                                </td>
                             </tr>
                             <?php
                         }
                         ?>
                         </tbody>
-                    </table>
 
-                    <input type="button" value="Delete" class="btn btn-danger"/>
+                    </table>
 
                 </div>
             </div>
@@ -204,6 +216,19 @@
 <script src="./assets/js/bootstrap-datepicker.js"></script>
 <script src="./assets/js/bootstrap-table.js"></script>
 <script>
+
+
+    $('.table').on('click', '.btn-danger', function () {
+        $(this).parents('tr').remove();
+        var id = $(this).parents("tr").children("td:first").text();
+    });
+
+
+    $('.table').on('click', '.btn-primary', function () {
+        var id = $(this).parents("tr").children("td:first").text();
+        alert(id);
+    });
+
     !function ($) {
         $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
             $(this).find('em:first').toggleClass("glyphicon-minus");
@@ -217,6 +242,7 @@
     $(window).on('resize', function () {
         if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
     })
+
 </script>
 </body>
 

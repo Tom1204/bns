@@ -1,5 +1,13 @@
 <?php
-require "../apps/Authentication.php";
+    require "../apps/Authentication.php";
+    require_once "../Controllers/Statistics.php";
+
+    $session=$_COOKIE["Auth"];
+
+    if(!isset($session)) {
+        url('login.php');
+    }
+
 ?>
 
 <!DOCTYPE html>
