@@ -3,9 +3,9 @@
 
 class DBConnector
 {
-    private $host = "localhost";
+    private $host = "localhost:8889";
     private $user = "root";
-    private $password = "";
+    private $password = "1";
     private $selected_database_name = "db";
     private $db;
     private $selected_database;
