@@ -29,10 +29,10 @@ require_once "../Controllers/Registration.php";
                             <input class="form-control" placeholder="Username" name="username" type="text" autofocus="" required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
+                            <input class="form-control" minlength="5" placeholder="Password" name="password" type="password" value="" required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Confirm password" name="confirmation"
+                            <input class="form-control" minlength="5" placeholder="Confirm password" name="confirmation"
                                    type="password" value="" required>
                         </div>
 
