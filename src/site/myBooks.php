@@ -2,9 +2,17 @@
     require_once "../Controllers/Books.php";
 
     $session=$_COOKIE["Auth"];
+
     if(isset($session)){
         $orders = Books::filterBooks();
-        echo "dkjhkjskj";
+        $actualorders=array();
+        while($order=mysqli_fetch_array($orders)){
+            $productObject=Product::get(array("id"=>$order['productId']));
+            $order['productId']=$productObject->name;
+            $userObject = User::get(array("id"=>$order['user']));
+            $order['user'] = $userObject->full_name;
+            $actualorders[]=$order;
+        }
     }else{
         url('login.php');
     }
@@ -156,14 +164,15 @@
 
                         <?php
                         if(isset($orders)){
-                            foreach ($orders as $order) {
+                            foreach ($actualorders as $order) {
+//                               while($order=mysqli_fetch_array($orders)){
                                 ?>
                                 <tr>
-                                    <td><?php echo $order->productId;?></td>
-                                    <td><?php echo $order->total_cost;?></td>
-                                    <td><?php echo $order->user;?></td>
-                                    <td><?php echo $order->user;?></td>
-                                    <td><?php echo $order->time;?></td>
+                                    <td><?php echo $order['name'];?></td>
+                                    <td><?php echo $order['cost'];?></td>
+                                    <td><?php echo $order['user'];?></td>
+                                    <td><?php echo $order['user'];?></td>
+                                    <td><?php echo $order['time'];?></td>
                                 </tr>
                                 <?php
                             }

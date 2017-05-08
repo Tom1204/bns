@@ -92,11 +92,9 @@ abstract class Model extends Query
 
     public static function advancedquery($query)
     {
-        $class_name = get_called_class();
         $result = DBConnector::Instance()->make_query($query);
         if (mysqli_num_rows($result) != 0) {
-            $object = mysqli_fetch_object($result, $class_name);
-            return $object;
+            return $result;
         } else {
             return null;
         }

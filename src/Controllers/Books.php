@@ -26,7 +26,7 @@ class Books extends View
         $session=$_COOKIE["Auth"];
         $auth=Authentication::get(array("session"=>$session));
         $userId=$auth->user;
-        $query = "SELECT * FROM product, book WHERE product.user=".$userId." AND book.productId=product.id";
+        $query = "SELECT product.*, book.* FROM product, book WHERE product.user=".$userId." AND book.productId=product.id";
         $myBooks = Book::advancedquery($query);
         return $myBooks;
     }
