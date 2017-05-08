@@ -1,12 +1,14 @@
 <?php
+
     require_once "../Controllers/Products.php";
-//    $products = Products::render();
-    $session=$_COOKIE["Auth"];
-    if(isset($session)){
+
+    $session = $_COOKIE["Auth"];
+    if (isset($session)) {
         $products = Products::filter();
-    }else{
+    } else {
         url('login.php');
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -136,6 +138,7 @@
                         </thead>
                         <tbody>
                         <?php
+                        if(isset($products))
                         foreach ($products as $product) {
                             ?>
                             <tr>
@@ -143,20 +146,22 @@
                                     <?php echo $product->id ?>
                                 </td>
                                 <td>
-                                    <div contenteditable><?php echo $product->name ?></div>
+                                    <div>
+                                        <a href="productDetail.php?id=<?php echo $product->id ?>"> <?php echo $product->name; ?></a>
+                                    </div>
                                 </td>
 
                                 <td>
-                                    <div contenteditable><?php echo $product->type ?></div>
+                                    <div><?php echo $product->type; ?></div>
 
                                 </td>
 
                                 <td>
-                                    <div contenteditable><?php echo $product->cost ?></div>
+                                    <div><?php echo $product->cost; ?></div>
                                 </td>
 
                                 <td>
-                                    <div contenteditable><?php echo $product->description ?></div>
+                                    <div><?php echo $product->description; ?></div>
                                 </td>
                             </tr>
                             <?php
@@ -184,7 +189,16 @@
 <script>
 
 
+    $('.table').on('click', '.btn-danger', function () {
+        $(this).parents('tr').remove();
+        var id = $(this).parents("tr").children("td:first").text();
+    });
 
+
+    $('.table').on('click', '.btn-primary', function () {
+        var id = $(this).parents("tr").children("td:first").text();
+        alert(id);
+    });
 
     !function ($) {
         $(document).on("click", "ul.nav li.parent > a > span.icon", function () {

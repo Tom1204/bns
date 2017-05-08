@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: tom1
@@ -27,6 +28,7 @@ class Query
         }
         return array("columns" => $columns, "values" => $values);
     }
+
     static function get_query(array $args)
     {
         $query = "";
@@ -42,6 +44,23 @@ class Query
         }
         return $query;
     }
+
+    static function reverse_get_query(array $args)
+    {
+        $query = "";
+        $count = count($args);
+        $i = 0;
+        foreach ($args as $key => $value) {
+            if ($i != $count - 1) {
+                $query .= "NOT BINARY $key='$value' and ";
+            } else {
+                $query .= "NOT BINARY $key='$value'";
+            }
+            $i++;
+        }
+        return $query;
+    }
+
     function get_update_query()
     {
         $query = "";

@@ -1,5 +1,8 @@
 <?php
-require_once "../Controllers/Login.php";
+    require_once "../Controllers/Login.php";
+    if (isset($_COOKIE["Auth"])) {
+        setcookie("Auth", null, time()-1);
+    }
 ?>
 <!DOCTYPE html>
 <html>
