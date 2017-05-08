@@ -45,18 +45,6 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#"><span>Producer</span>Dashboard</a>
-            <ul class="user-menu">
-                <li class="dropdown pull-right">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <svg class="glyph stroked male-user">
-                            <use xlink:href="#stroked-male-user"></use>
-                        </svg>
-                        User <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu"><li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>Profile</a></li><li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg>Settings</a></li>
-                        <li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg>Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
         </div>
 
     </div><!-- /.container-fluid -->
@@ -142,6 +130,7 @@
                             <th data-field="producerName" data-sortable="true">Producer name</th>
                             <th data-field="email" data-sortable="true">Email</th>
                             <th data-field="time" data-sortable="true">Type</th>
+                            <th data-field="action" data-sortable="true">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -156,6 +145,7 @@
                                 <td><?php echo $product->user?></td>
                                 <td><?php echo $product->user?></td>
                                 <td><?php echo $product->type?></td>
+                                <td><button class="btn btn-primary">Buy</button></td>
                             </tr>
                             <?php
                         }
@@ -179,6 +169,12 @@
 <script src="./assets/js/bootstrap-datepicker.js"></script>
 <script src="./assets/js/bootstrap-table.js"></script>
 <script>
+
+    $('.table').on('click', '.btn-primary', function () {
+        var id = $(this).parents("tr").children("td:first").text();
+        alert(id);
+    });
+
     !function ($) {
         $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
             $(this).find('em:first').toggleClass("glyphicon-minus");

@@ -1,5 +1,6 @@
 <?php
     require_once "../Controllers/Products.php";
+//    $products = Products::render();
     $session=$_COOKIE["Auth"];
     if(isset($session)){
         $products = Products::filter();
@@ -42,32 +43,6 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#"><span>Producer</span>Dashboard</a>
-            <ul class="user-menu">
-                <li class="dropdown pull-right">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <svg class="glyph stroked male-user">
-                            <use xlink:href="#stroked-male-user"></use>
-                        </svg>
-                        User <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">
-                                <svg class="glyph stroked male-user">
-                                    <use xlink:href="#stroked-male-user"></use>
-                                </svg>
-                                Profile</a></li>
-                        <li><a href="#">
-                                <svg class="glyph stroked gear">
-                                    <use xlink:href="#stroked-gear"></use>
-                                </svg>
-                                Settings</a></li>
-                        <li><a href="#">
-                                <svg class="glyph stroked cancel">
-                                    <use xlink:href="#stroked-cancel"></use>
-                                </svg>
-                                Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
         </div>
 
     </div><!-- /.container-fluid -->
@@ -152,7 +127,7 @@
                            data-sort-order="desc">
                         <thead>
                         <tr>
-                            <th data-field="id" data-sortable="true">ID</th>
+                            <th data-field="id" data-sortable="true">No</th>
                             <th data-field="name" data-sortable="true">Name</th>
                             <th data-field="type" data-sortable="true">Type</th>
                             <th data-field="price" data-sortable="true">Price $</th>
@@ -207,6 +182,9 @@
 <script src="./assets/js/bootstrap-datepicker.js"></script>
 <script src="./assets/js/bootstrap-table.js"></script>
 <script>
+
+
+
 
     !function ($) {
         $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
