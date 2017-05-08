@@ -69,7 +69,7 @@
         <li><a href="addProduct.php"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Add product</a></li>
         <li><a href="availableProducts.php"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Available products</a></li>
         <li role="presentation" class="divider"></li>
-        <li><a href="login.php"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Log out</a></li>
+        <li><a href="login.php"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>Log out</a></li>
     </ul>
     <div class="attribution">Design by BNS<br/><a style="color: #333;">Icons by BNS</a></div>
 </div><!--/.sidebar-->
