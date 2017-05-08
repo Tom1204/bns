@@ -13,7 +13,7 @@ class Authentication extends Model
         $args = array("username" => $username, "password" => $password);
         $user = User::get($args);
         if ($user == null) {
-            throw new InvalidArgumentException("Username or password is incorrect");
+            return array("error" => "Username or password is incorrect");
         }
         $authenticated_user = Authentication::check($user->id);
         if ($authenticated_user != null) {
