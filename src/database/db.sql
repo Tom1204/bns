@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2017 at 11:13 AM
+-- Generation Time: May 08, 2017 at 03:42 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -44,7 +44,10 @@ INSERT INTO `Authentication` (`id`, `user`, `session`, `is_delete`) VALUES
 (4, 8, 'f54d8b864b188cda526fc93c2bd09e39', 0),
 (5, 2, 'e73c8d1ba5b2740830a8510a67f0d082', 0),
 (6, 7, 'dc9863d23a37b58fb548ef72cb1ae9f7', 0),
-(7, 10, 'c744f8e74b9c89a09d998f1c8a3d1cbd', 0);
+(7, 10, 'c744f8e74b9c89a09d998f1c8a3d1cbd', 0),
+(8, 4, 'a9a42bca121cae0d6058dc9070516019', 0),
+(9, 9, 'eff24af34d3d13fe219aa0ec4859ed0f', 0),
+(10, 6, '4704d3964d9c57d3e15f964d72f5d8db', 0);
 
 -- --------------------------------------------------------
 
@@ -55,6 +58,7 @@ INSERT INTO `Authentication` (`id`, `user`, `session`, `is_delete`) VALUES
 CREATE TABLE `Book` (
   `id` int(11) NOT NULL,
   `productId` int(11) NOT NULL,
+  `producerId` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `total_cost` double NOT NULL,
   `time` date NOT NULL,
@@ -65,20 +69,26 @@ CREATE TABLE `Book` (
 -- Dumping data for table `book`
 --
 
-INSERT INTO `Book` (`id`, `productId`, `user`, `total_cost`, `time`, `is_delete`) VALUES
-(1, 1, 3, 1500, '2017-05-06', 0),
-(2, 5, 5, 100, '2017-05-03', 0),
-(3, 4, 1, 10, '2017-05-02', 0),
-(4, 7, 7, 3, '2017-05-04', 0),
-(5, 9, 3, 10000, '2017-05-01', 0),
-(6, 3, 5, 200, '2017-04-20', 0),
-(7, 2, 3, 700, '2017-04-25', 0),
-(19, 5, 3, 100, '2017-05-07', 0),
-(20, 22, 3, 800, '2017-05-07', 0),
-(21, 9, 3, 10000, '2017-05-07', 0),
-(22, 8, 3, 15, '2017-05-07', 0),
-(24, 25, 10, 5, '2017-05-07', 0),
-(25, 1, 2, 1500, '2017-05-08', 0);
+INSERT INTO `Book` (`id`, `productId`, `producerId`, `user`, `total_cost`, `time`, `is_delete`) VALUES
+(1, 1, 2, 3, 1500, '2017-05-06', 0),
+(2, 5, 2, 5, 100, '2017-05-03', 0),
+(3, 4, 6, 1, 10, '2017-05-02', 0),
+(4, 7, 7, 7, 3, '2017-05-04', 0),
+(5, 9, 9, 3, 10000, '2017-05-01', 0),
+(6, 3, 4, 5, 200, '2017-04-20', 0),
+(7, 2, 2, 3, 700, '2017-04-25', 0),
+(19, 5, 2, 3, 100, '2017-05-07', 0),
+(20, 22, 4, 3, 800, '2017-05-07', 0),
+(21, 9, 9, 3, 10000, '2017-05-07', 0),
+(22, 8, 8, 3, 15, '2017-05-07', 0),
+(24, 25, 2, 10, 5, '2017-05-07', 0),
+(25, 1, 2, 2, 1500, '2017-05-08', 0),
+(26, 9, 9, 2, 10000, '2017-05-08', 0),
+(27, 9, 9, 4, 10000, '2017-05-08', 0),
+(28, 6, 7, 4, 3, '2017-05-08', 0),
+(29, 33, 4, 10, 2000, '2017-05-08', 0),
+(31, 33, 4, 3, 2000, '2017-05-08', 0),
+(33, 4, 6, 3, 10, '2017-05-08', 0);
 
 -- --------------------------------------------------------
 
@@ -120,7 +130,9 @@ INSERT INTO `Product` (`id`, `name`, `user`, `cost`, `type`, `description`, `is_
 (29, 'Spark', 10, 5000, 'cars', 'Awesome', 1),
 (30, 'dsfgdsf', 10, 0, 'clothes', 'dfsgsdfg', 1),
 (31, 's', 10, 0, 'food', 'sdhfsdf', 1),
-(32, 'TV', 2, 200, 'technology', 'The beautiful design with HD quality.', 0);
+(32, 'TV', 2, 200, 'technology', 'The beautiful design with HD quality.', 0),
+(33, 'MacBook', 4, 2000, 'technology', 'The best laptop to help you anytime and anywhere', 0),
+(34, 'Air condition', 2, 300, 'technology', 'Your best friend in summer and winter', 0);
 
 -- --------------------------------------------------------
 
@@ -177,7 +189,7 @@ ALTER TABLE `Product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `User`
+-- Indexes for table `user`
 --
 ALTER TABLE `User`
   ADD PRIMARY KEY (`id`);
@@ -190,19 +202,19 @@ ALTER TABLE `User`
 -- AUTO_INCREMENT for table `authentication`
 --
 ALTER TABLE `Authentication`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `Book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `Product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
--- AUTO_INCREMENT for table `User`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `User`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;

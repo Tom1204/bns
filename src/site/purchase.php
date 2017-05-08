@@ -6,7 +6,12 @@
     $session=$_COOKIE["Auth"];
 
     if(isset($session)){
-        $orders = Books::render();
+
+        $auth = Authentication::get(array("session" => $session));
+        $userId = $auth->user;
+        $userObject=User::get(array("id"=>$userId));
+
+        $orders = Book::filter(array("user"=>$userId));
 
         foreach ($orders as $order) {
             $objectproduct=Product::get(array("id"=>$order->productId));
@@ -15,15 +20,9 @@
             $order->user=$userobject->full_name;
         }
 
-
     }else{
         url('login.php');
     }
-
-
-    $auth = Authentication::get(array("session" => $session));
-    $userId = $auth->user;
-    $userObject=User::get(array("id"=>$userId));
 
 
 ?>

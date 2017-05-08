@@ -32,9 +32,12 @@ if (isset($_COOKIE["Auth"])) {
 
 $productPercent = round((float)count(Product::filter(array("user" => $userId))) * 100 / $allProducts, 1);
 
+$productPercent = round((float)count(Product::filter(array("user" => $userId))) * 100 / $allProducts, 1);
+
 $orders = Books::filterBooks();
 $actualorders = array();
 $number = 0;
+
 if (isset($orders)) {
     while ($order = mysqli_fetch_array($orders)) {
         $productObject = Product::get(array("id" => $order['productId']));

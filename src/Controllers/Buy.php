@@ -34,6 +34,9 @@ class Buy extends View
 
                 $newbook=new Book();
                 $newbook->productId=$productId;
+
+                $newbook->producerId=$product->user;
+
                 $newbook->total_cost=$total_cost;
                 $newbook->time=$time;
                 $newbook->user=$user_id;

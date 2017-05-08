@@ -15,11 +15,9 @@ class Users extends View
     public static function render($parameter = null)
     {
 
-//        $users=User::all();
+        $users=User::all();
 
-        $user=User::get(array("id"=>1));
-
-        return $user;
+        return $users;
 
     }
 }
