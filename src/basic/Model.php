@@ -14,16 +14,16 @@ abstract class Model extends Query
     {
         $class_name = get_called_class();
         $query = "SELECT * FROM " . $class_name . " WHERE is_delete=0";
-        $result = DBConnector::Instance()->make_query($query);
         $objects = array();
-        if (mysqli_num_rows($result) != 0) {
-            while ($object = mysqli_fetch_object($result, $class_name)) {
-                array_push($objects, $object);
+        if ($result = DBConnector::Instance()->make_query($query)) {
+            if (mysqli_num_rows($result) != 0) {
+                while ($object = mysqli_fetch_object($result, $class_name)) {
+                    array_push($objects, $object);
+                }
+                return $objects;
             }
-            return $objects;
-        } else {
-            return $objects;
         }
+        return $objects;
     }
 
     static function get(array $query)
@@ -31,14 +31,13 @@ abstract class Model extends Query
         $query_args = self::get_query($query);
         $class_name = get_called_class();
         $query_string = "SELECT * FROM " . $class_name . " WHERE is_delete=0 AND " . $query_args;
-
-        $result = DBConnector::Instance()->make_query($query_string);
-        if (mysqli_num_rows($result) != 0) {
-            $object = mysqli_fetch_object($result, $class_name);
-            return $object;
-        } else {
-            return null;
+        if ($result = DBConnector::Instance()->make_query($query_string)) {
+            if (mysqli_num_rows($result) != 0) {
+                $object = mysqli_fetch_object($result, $class_name);
+                return $object;
+            }
         }
+        return null;
     }
 
     static function filter(array $query)
@@ -46,16 +45,16 @@ abstract class Model extends Query
         $query_args = self::get_query($query);
         $class_name = get_called_class();
         $query_string = "SELECT * FROM " . $class_name . " WHERE is_delete=0 AND " . $query_args;
-        $result = DBConnector::Instance()->make_query($query_string);
         $objects = array();
-        if (mysqli_num_rows($result) != 0) {
-            while ($object = mysqli_fetch_object($result, $class_name)) {
-                array_push($objects, $object);
+        if ($result = DBConnector::Instance()->make_query($query_string)) {
+            if (mysqli_num_rows($result) != 0) {
+                while ($object = mysqli_fetch_object($result, $class_name)) {
+                    array_push($objects, $object);
+                }
+                return $objects;
             }
-            return $objects;
-        } else {
-            return $objects;
         }
+        return $objects;
     }
 
     static function reverse_filter(array $query)
@@ -63,16 +62,16 @@ abstract class Model extends Query
         $query_args = self::reverse_filter($query);
         $class_name = get_called_class();
         $query_string = "SELECT * FROM " . $class_name . " WHERE is_delete=0 AND " . $query_args;
-        $result = DBConnector::Instance()->make_query($query_string);
         $objects = array();
-        if (mysqli_num_rows($result) != 0) {
-            while ($object = mysqli_fetch_object($result, $class_name)) {
-                array_push($objects, $object);
+        if ($result = DBConnector::Instance()->make_query($query_string)) {
+            if (mysqli_num_rows($result) != 0) {
+                while ($object = mysqli_fetch_object($result, $class_name)) {
+                    array_push($objects, $object);
+                }
+                return $objects;
             }
-            return $objects;
-        } else {
-            return $objects;
         }
+        return $objects;
     }
 
     function save()
@@ -92,11 +91,13 @@ abstract class Model extends Query
 
     public static function advancedquery($query)
     {
-        $result = DBConnector::Instance()->make_query($query);
-        if (mysqli_num_rows($result) != 0) {
-            return $result;
-        } else {
-            return null;
+
+        if ($result = DBConnector::Instance()->make_query($query)) {
+            if (mysqli_num_rows($result) != 0) {
+                return $result;
+            } else {
+                return null;
+            }
         }
     }
 
@@ -114,13 +115,14 @@ abstract class Model extends Query
         $class_name = get_called_class();
         $query_args = self::get_search_args($pattern);
         $query = "SELECT * FROM $class_name WHERE $query_args";
-        $result = DBConnector::Instance()->make_query($query);
         $objects = array();
-        if (mysqli_num_rows($result) != 0) {
-            while ($object = mysqli_fetch_object($result, $class_name)) {
-                array_push($objects, $object);
+        if ($result = DBConnector::Instance()->make_query($query)) {
+            if (mysqli_num_rows($result) != 0) {
+                while ($object = mysqli_fetch_object($result, $class_name)) {
+                    array_push($objects, $object);
+                }
+                return $objects;
             }
-            return $objects;
         }
         return $objects;
     }

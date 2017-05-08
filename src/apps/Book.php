@@ -56,16 +56,17 @@ class Book extends Model
      */
     public function getUserId()
     {
-        return $this->userId;
+        return $this->user;
     }
 
 
     /**
-     * @param mixed $userId
+     * @param $user
+     * @internal param mixed $user
      */
-    public function setUserId($userId)
+    public function setUserId($user)
     {
-        $this->userId = $userId;
+        $this->user = $user;
     }
 
 
