@@ -33,7 +33,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My books</title>
+    <title>My orders</title>
 
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/datepicker3.css" rel="stylesheet">
@@ -83,7 +83,7 @@
                 <svg class="glyph stroked calendar">
                     <use xlink:href="#stroked-calendar"></use>
                 </svg>
-                My books</a></li>
+                My orders</a></li>
         <li><a href="purchase.php">
                 <svg class="glyph stroked line-graph">
                     <use xlink:href="#stroked-line-graph"></use>

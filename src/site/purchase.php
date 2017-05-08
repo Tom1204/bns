@@ -83,7 +83,7 @@
                 <svg class="glyph stroked calendar">
                     <use xlink:href="#stroked-calendar"></use>
                 </svg>
-                My books</a></li>
+                My orders</a></li>
         <li class="active"><a href="purchase.php">
                 <svg class="glyph stroked line-graph">
                     <use xlink:href="#stroked-line-graph"></use>

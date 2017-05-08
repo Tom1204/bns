@@ -63,7 +63,7 @@
     </form>
     <ul class="nav menu">
         <li class="active"><a href="statistics.php"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Statistics</a></li>
-        <li><a href="myBooks.php"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> My books</a></li>
+        <li><a href="myBooks.php"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> My orders</a></li>
         <li><a href="purchase.php"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Purchase</a></li>
         <li><a href="myProducts.php"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> My Products</a></li>
         <li><a href="addProduct.php"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Add product</a></li>
@@ -71,7 +71,7 @@
         <li role="presentation" class="divider"></li>
         <li><a href="login.php"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Log out</a></li>
     </ul>
-    <div class="attribution">Design by <a href="http://www.medialoot.com/item/lumino-admin-bootstrap-template/">BNS</a><br/><a href="http://www.glyphs.co" style="color: #333;">Icons by BNS</a></div>
+    <div class="attribution">Design by BNS<br/><a style="color: #333;">Icons by BNS</a></div>
 </div><!--/.sidebar-->
 
 
@@ -89,7 +89,7 @@
         </div>
     </div><!--/.row-->
 
-    <div class="row">
+    <div class="row" style="margin-top: 50px">
         <div class="col-xs-12 col-md-6 col-lg-3">
             <div class="panel panel-blue panel-widget ">
                 <div class="row no-padding">
@@ -146,20 +146,8 @@
         </div>
     </div><!--/.row-->
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">Site Traffic Overview</div>
-                <div class="panel-body">
-                    <div class="canvas-wrapper">
-                        <canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!--/.row-->
 
-    <div class="row">
+    <div class="row" style="margin-top: 100px">
         <div class="col-xs-6 col-md-3">
             <div class="panel panel-default">
                 <div class="panel-body easypiechart-panel">
