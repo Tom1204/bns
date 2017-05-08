@@ -1,12 +1,18 @@
 <?php
     require "../apps/Authentication.php";
     require_once "../Controllers/Statistics.php";
+    require_once "../Controllers/Users.php";
 
     $session=$_COOKIE["Auth"];
 
     if(!isset($session)) {
         url('login.php');
     }
+
+    $auth = Authentication::get(array("session" => $session));
+    $userId = $auth->user;
+
+    $userObject=User::get(array("id"=>$userId));
 
 ?>
 
@@ -41,7 +47,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><span>Producer</span>Dashboard</a>
+            <a class="navbar-brand" href="#"><span><?php echo $userObject->full_name;?></span> - Dashboard</a>
         </div>
 
     </div><!-- /.container-fluid -->

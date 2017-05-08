@@ -6,17 +6,27 @@
     if(isset($session)){
         $orders = Books::filterBooks();
         $actualorders=array();
-        while($order=mysqli_fetch_array($orders)){
-            $productObject=Product::get(array("id"=>$order['productId']));
-            $order['productId']=$productObject->name;
-            $userObject = User::get(array("id"=>$order['user']));
-            $order['user'] = $userObject->full_name;
-            $actualorders[]=$order;
+        if(isset($orders)){
+            while($order=mysqli_fetch_array($orders)){
+                $productObject=Product::get(array("id"=>$order['productId']));
+                $order['productId']=$productObject->name;
+                $userObject = User::get(array("id"=>$order['user']));
+                $order['user'] = $userObject->full_name;
+                $actualorders[]=$order;
+            }
         }
     }else{
         url('login.php');
     }
+
+
+    $auth = Authentication::get(array("session" => $session));
+    $userId = $auth->user;
+    $userObject=User::get(array("id"=>$userId));
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -51,7 +61,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><span>Producer</span>Dashboard</a>
+            <a class="navbar-brand" href="#"><span><?php echo $userObject->full_name;?></span></a>
         </div>
 
     </div><!-- /.container-fluid -->
