@@ -138,7 +138,7 @@
                         <svg class="glyph stroked app-window-with-content"><use xlink:href="#stroked-app-window-with-content"></use></svg>
                     </div>
                     <div class="col-sm-9 col-lg-7 widget-right">
-                        <div class="large"><?php echo $allUsers;?></div>
+                        <div class="large"><?php echo $onlyUsers;?></div>
                         <div class="text-muted">Users</div>
                     </div>
                 </div>
@@ -164,7 +164,7 @@
             <div class="panel panel-default">
                 <div class="panel-body easypiechart-panel">
                     <h4>Companies</h4>
-                    <div class="easypiechart" id="easypiechart-blue" data-percent="92" ><span class="percent">92%</span>
+                    <div class="easypiechart" id="easypiechart-blue" data-percent="<?php echo $companyPercent;?>" ><span class="percent"><?php echo $companyPercent;?>%</span>
                     </div>
                 </div>
             </div>
@@ -173,7 +173,7 @@
             <div class="panel panel-default">
                 <div class="panel-body easypiechart-panel">
                     <h4>Products</h4>
-                    <div class="easypiechart" id="easypiechart-orange" data-percent="65" ><span class="percent">65%</span>
+                    <div class="easypiechart" id="easypiechart-orange" data-percent="<?php echo $productPercent?>" ><span class="percent"><?php echo $productPercent?>%</span>
                     </div>
                 </div>
             </div>
@@ -182,7 +182,7 @@
             <div class="panel panel-default">
                 <div class="panel-body easypiechart-panel">
                     <h4>Orders</h4>
-                    <div class="easypiechart" id="easypiechart-teal" data-percent="56" ><span class="percent">56%</span>
+                    <div class="easypiechart" id="easypiechart-teal" data-percent="<?php echo $orderPercent;?>" ><span class="percent"><?php echo $orderPercent;?>%</span>
                     </div>
                 </div>
             </div>
@@ -191,7 +191,7 @@
             <div class="panel panel-default">
                 <div class="panel-body easypiechart-panel">
                     <h4>Users</h4>
-                    <div class="easypiechart" id="easypiechart-red" data-percent="27" ><span class="percent">27%</span>
+                    <div class="easypiechart" id="easypiechart-red" data-percent="<?php echo $userPercent;?>" ><span class="percent"><?php echo $userPercent;?>%</span>
                     </div>
                 </div>
             </div>

@@ -152,9 +152,8 @@
                         <tbody>
 
                         <?php
-                        if(isset($orders)){
+                        if(isset($orders) && isset($actualorders)){
                             foreach ($actualorders as $order) {
-//                               while($order=mysqli_fetch_array($orders)){
                                 ?>
                                 <tr>
                                     <td><?php echo $order['name'];?></td>
