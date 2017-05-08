@@ -10,6 +10,7 @@ class Book extends Model
 {
     public $id;
     public $productId;
+    public $producerId;
     public $user;
     public $total_cost;
     public $time;
@@ -54,18 +55,35 @@ class Book extends Model
     /**
      * @return mixed
      */
-    public function getUserId()
+    public function getProducerId()
     {
-        return $this->userId;
+        return $this->producerId;
+    }
+
+    /**
+     * @param mixed $producerId
+     */
+    public function setProducerId($producerId)
+    {
+        $this->producerId = $producerId;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 
 
     /**
      * @param mixed $userId
      */
-    public function setUserId($userId)
+    public function setUser($user)
     {
-        $this->userId = $userId;
+        $this->user = $user;
     }
 
 

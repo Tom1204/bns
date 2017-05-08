@@ -4,25 +4,23 @@
     $session=$_COOKIE["Auth"];
 
     if(isset($session)){
-        $orders = Books::filterBooks();
-        $actualorders=array();
-        if(isset($orders)){
-            while($order=mysqli_fetch_array($orders)){
-                $productObject=Product::get(array("id"=>$order['productId']));
-                $order['productId']=$productObject->name;
-                $userObject = User::get(array("id"=>$order['user']));
-                $order['user'] = $userObject->full_name;
-                $actualorders[]=$order;
-            }
+
+        $auth = Authentication::get(array("session" => $session));
+        $userId = $auth->user;
+        $userObject=User::get(array("id"=>$userId));
+
+        $orders = Book::filter(array("producerId"=>$userId));
+        foreach ($orders as $order) {
+            $productObject=Product::get(array("id"=>$order->productId));
+            $order->productId=$productObject->name;
+            $customer = User::get(array("id"=>$order->user));
+            $order->user = $customer->full_name;
         }
+
     }else{
         url('login.php');
     }
 
-
-    $auth = Authentication::get(array("session" => $session));
-    $userId = $auth->user;
-    $userObject=User::get(array("id"=>$userId));
 
 ?>
 
@@ -145,22 +143,20 @@
                             <th data-field="productName" data-sortable="true">Product name</th>
                             <th data-field="price" data-sortable="true">Price</th>
                             <th data-field="customerName" data-sortable="true">Customer name</th>
-                            <th data-field="email" data-sortable="true">Email</th>
                             <th data-field="time" data-sortable="true">Time</th>
                         </tr>
                         </thead>
                         <tbody>
 
                         <?php
-                        if(isset($orders) && isset($actualorders)){
-                            foreach ($actualorders as $order) {
+                        if(isset($orders)){
+                            foreach ($orders as $order) {
                                 ?>
                                 <tr>
-                                    <td><?php echo $order['name'];?></td>
-                                    <td><?php echo $order['cost'];?></td>
-                                    <td><?php echo $order['user'];?></td>
-                                    <td><?php echo $order['user'];?></td>
-                                    <td><?php echo $order['time'];?></td>
+                                    <td><?php echo $order->productId;?></td>
+                                    <td><?php echo $order->total_cost;?></td>
+                                    <td><?php echo $order->user;?></td>
+                                    <td><?php echo $order->time;?></td>
                                 </tr>
                                 <?php
                             }

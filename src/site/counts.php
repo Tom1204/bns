@@ -34,8 +34,9 @@
 
     $orders = Books::filterBooks();
     $actualorders=array();
+    $number = 0;
+
     if(isset($orders)){
-        $number = 0;
         while($order=mysqli_fetch_array($orders)){
             $productObject=Product::get(array("id"=>$order['productId']));
             $order['productId']=$productObject->name;
